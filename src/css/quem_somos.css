@@ -1,0 +1,1084 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+body {
+
+    background: linear-gradient(to bottom, #87cbeb 50%, #eaeef0 100%);
+    min-height: 100vh;
+    margin: 0;
+    color: black;
+    overflow-x: hidden;
+}
+
+
+/*css do Nav-bar----------------------------------------------------------------------------*/
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Open+Sans:wght@400;600&display=swap');
+
+
+/* Base Navigation Bar Styles */
+nav {
+  background-color: #ffffff;
+  padding: 15px 30px;
+  display: flex;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 120px; /* Sua altura atual */
+  z-index: 1000; /* Mantenha um z-index alto para a navbar */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  border-bottom: 3px solid #ff66a6;
+  justify-content: space-between;
+}
+
+/* Logo and School Name Container */
+.brand-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  /* padding-right: 40px; REMOVIDO: Nao é mais necessário com space-between */
+}
+
+.brand-logo img {
+  height: 100px;
+  width: auto;
+  filter: drop-shadow(1px 1px 2px rgba(0,0,0,0.1));
+}
+
+.logo {
+  font-family: 'Fredoka One', cursive;
+  font-size: 35px;
+  font-weight: bold;
+  color: #ff6699;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.08);
+  letter-spacing: 0.5px;
+  margin-bottom: 0; /* Ajustado para não ter margem inferior com o novo layout */
+
+  background-image: linear-gradient(
+    90deg,
+    #ff6699,
+    #783dbb,
+    #f0664e,
+    #523ddd,
+    #8a2be2,
+    #ff6699
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  background-size: 600% 100%;
+  animation: gradientShift 10s infinite alternate;
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+/* NOVO: Contêiner que agrupa nav-links e login para desktop */
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 40px; /* Espaço entre nav-links e login */
+  margin-top: 20px;
+  /* margin-left: 25px; REMOVIDO: Nao é mais necessário */
+}
+
+/* Navigation Links Container */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 50px; /* Espaço entre os itens de navegação */
+}
+
+/* Individual Navigation Item - MANTENHA O RESTO DAQUI PARA BAIXO IGUAL AO SEU CSS ATUAL */
+.nav-item {
+  position: relative;
+  padding-bottom: 10px;
+}
+
+/* Styling for the Navigation Links */
+.nav-item a {
+  text-decoration: none;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 22px;
+  padding: 10px 0;
+  border-radius: 0;
+  transition: all 0.3s ease-in-out;
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+  
+}
+
+/* Individual colors for each nav item */
+.nav-item:nth-child(1) a { color: #783dbb; }
+.nav-item:nth-child(2) a { color: #5bc0de; }
+.nav-item:nth-child(3) a { color: #f0664e; }
+.nav-item:nth-child(4) a { color: #7bd94f; }
+.nav-item:nth-child(5) a { color: #523ddd; }
+.nav-item:nth-child(6) a { color: #8a2be2; }
+
+/* Animation for Navigation Links (Underline Effect) */
+.nav-item a::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  background-color: currentColor;
+  bottom: 0;
+  left: 0;
+  transform: scaleX(0);
+  transform-origin: left;
+  border-radius: 2px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.nav-item a:hover::before {
+  transform: scaleX(1);
+}
+
+.nav-item a.active, .nav-item a:focus {
+  background-color: transparent;
+  box-shadow: none;
+}
+
+.nav-item a.active::before {
+  transform: scaleX(1);
+}
+
+/* Dropdown Menu Styles */
+.dropdown {
+  display: none;
+  position: absolute; /* Mantenha absolute em relação ao nav-item pai */
+  top: calc(100% - 5px); /* Posição relativa ao nav-item pai */
+  /* Remova left/right se existirem aqui, pois position: absolute já os alinha */
+  background-color: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  min-width: 160px;
+  z-index: 1001; /* Z-index alto para aparecer acima de outros conteúdos */
+  overflow: hidden; /* Mantenha para o dropdown não ter conteúdo "voando" */
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  pointer-events: none;
+}
+
+/* Display Dropdown on Hover */
+.nav-item:hover .dropdown {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* Dropdown Link Styles */
+.dropdown a {
+  display: block;
+  padding: 12px 15px;
+  text-decoration: none;
+  color: #555;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 15px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  border-radius: 0;
+}
+
+/* Dropdown Link Hover Effect */
+.dropdown a:hover {
+  background-color: #f5f5f5;
+  color: #333;
+}
+
+/* Login Icon Container */
+.login {
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  padding-bottom: 10px; /* Mantenha para o dropdown do login */
+  /* margin-left: auto; REMOVIDO: Nao é mais necessário com o novo nav-menu */
+}
+
+/* Login Icon Image */
+.login img {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Login Icon Hover Effect */
+.login:hover {
+  transform: scale(1.1);
+}
+
+/* Login Dropdown Styles */
+.login-dropdown {
+  display: none;
+  position: absolute;
+  top: calc(100% - 5px);
+  right: 0;
+  background-color: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  min-width: 150px;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  pointer-events: none;
+}
+
+/* Display Login Dropdown on Hover */
+.login:hover .login-dropdown {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* Login Dropdown Link Styles */
+.login-dropdown a {
+  display: block;
+  padding: 12px 15px;
+  text-decoration: none;
+  color: #555;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 15px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Login Dropdown Link Hover Effect */
+.login-dropdown a:hover {
+  background-color: #f5f5f5;
+  color: #333;
+}
+
+/* --- CSS DOS SPLASHES DE TINTA (Mantenha o seu existente) --- */
+.paint-splash-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.paint-splash {
+  position: absolute;
+  opacity: 0;
+  transform: scale(0.5) rotate(0deg);
+  animation: fadeAndGrow 1.5s forwards, fadeOut 1s 1s forwards;
+  will-change: opacity, transform;
+}
+
+.paint-splash img {
+  width: 60px;
+  height: auto;
+  filter: saturate(1.5) opacity(0.3);
+}
+
+@keyframes fadeAndGrow {
+  0% { opacity: 0; transform: scale(0.3) rotate(0deg); }
+  20% { opacity: 0.5; transform: scale(0.8) rotate(15deg); }
+  100% { opacity: 0.3; transform: scale(1) rotate(20deg); }
+}
+
+@keyframes fadeOut {
+    0% { opacity: 0.3; }
+    100% { opacity: 0; }
+}
+
+.nav-manual,
+.nav-auto {
+    position: absolute;
+    width: 100%;
+    bottom: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.nav-manual .manual-btn,
+.nav-auto div {
+    border: 2px solid white;
+    border-radius: 50%;
+    padding: 15px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.nav-manual .manual-btn:not(:last-child),
+.nav-auto div:not(:last-child) {
+    margin-right: 10px;
+}
+
+.nav-manual .manual-btn:hover {
+    background-color: #ff0054;
+}
+
+#imagem1:checked ~ .nav-auto .auto-btn1,
+#imagem2:checked ~ .nav-auto .auto-btn2,
+#imagem3:checked ~ .nav-auto .auto-btn3 {
+    background-color: whitesmoke;
+}
+
+#imagem1:checked ~ .slide-box:first-of-type {
+    margin-left: 0%;
+}
+
+#imagem2:checked ~ .slide-box:first-of-type {
+    margin-left: -25%;
+}
+
+#imagem3:checked ~ .slide-box:first-of-type {
+    margin-left: -50%;
+}
+
+/* --- Media Queries para Responsividade --- */
+
+/* Esconde o hambúrguer por padrão em telas grandes */
+.hamburger {
+  display: none;
+}
+
+/* Telas menores que 1080px (Laptops, Tablets em modo paisagem) */
+@media (max-width: 1080px) {
+  nav {
+    padding: 10px 20px;
+    height: 80px; /* Ajustar altura da navbar */
+  }
+
+  .brand-logo img {
+    height: 65px;
+  }
+
+  .logo {
+    font-size: 24px;
+  }
+
+  .nav-links {
+    gap: 25px;
+    
+  }
+
+  .nav-item a {
+    font-size: 16px;
+    padding: 6px 0;
+    
+  }
+
+  .login img {
+    width: 32px;
+    height: 32px;
+  }
+
+  .paint-splash img {
+    width: 50px;
+  }
+}
+
+/* Telas menores que 780px (Tablets em modo retrato, Smartphones maiores) */
+@media (max-width: 780px) {
+  nav {
+    height: 70px; /* Altura padrão mais compacta para mobile */
+    padding: 10px 15px;
+  }
+
+  .brand-logo img {
+    height: 55px;
+  }
+
+  .logo {
+    font-size: 22px;
+  }
+
+  /* Mostrar o botão hambúrguer */
+  .hamburger {
+    display: flex; /* Mudei de block para flex para centralizar as barras */
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px; /* Largura do ícone */
+    height: 25px; /* Altura do ícone */
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1001; /* Acima de tudo para ser clicável */
+    position: relative; /* Para animar o ícone */
+  }
+
+  .hamburger .bar {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: #ff6699; /* Cor das barras do hambúrguer */
+    border-radius: 2px;
+    transition: all 0.3s ease-in-out;
+  }
+
+  /* Animação do X no hambúrguer */
+  .hamburger.is-active .bar:nth-child(1) {
+    transform: translateY(11px) rotate(45deg);
+  }
+  .hamburger.is-active .bar:nth-child(2) {
+    opacity: 0;
+  }
+  .hamburger.is-active .bar:nth-child(3) {
+    transform: translateY(-11px) rotate(-45deg);
+  }
+
+  /* Esconder o nav-menu e posicioná-lo fora da tela */
+  .nav-menu {
+    display: flex; /* Manter flex para layout interno */
+    flex-direction: column;
+    position: fixed;
+    top: 0; /* Começa do topo da tela */
+    left: 100%; /* Escondido para a direita */
+    width: 100%;
+    height: 100vh; /* Ocupa a altura total da viewport */
+    background-color: #ffffff; /* Fundo do menu quando aberto */
+    transition: left 0.3s ease-in-out; /* Animação de slide */
+    padding-top: 80px; /* Espaço para não cobrir a navbar */
+    align-items: center; /* Centraliza itens */
+    justify-content: flex-start; /* Alinha ao topo */
+    z-index: 999; /* Abaixo da navbar fixa */
+    overflow-y: auto; /* Permite scroll se o conteúdo for muito grande */
+  }
+
+  /* Quando o menu está ativo (aberto) */
+  .nav-menu.is-open {
+    left: 0; /* Desliza para a esquerda, ficando visível */
+  }
+
+  /* Ajustes dos nav-links dentro do menu responsivo */
+  .nav-links {
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+    margin-left: 0;
+    padding: 20px 0;
+    border-bottom: 1px solid #eee; /* Separador */
+ 
+  }
+
+  .nav-item {
+    width: auto; /* Deixa o item se ajustar ao seu conteúdo */
+    text-align: center;
+    padding-bottom: 0;
+    
+  }
+
+  .nav-item a {
+    font-size: 18px; /* Links maiores no menu aberto */
+    padding: 10px 0;
+  }
+
+  /* Dropdowns no menu responsivo */
+  .dropdown {
+    position: static; /* Dentro do fluxo */
+    width: 100%;
+    box-shadow: none;
+    align-items: center;
+    margin: 0 auto;
+    border-radius: 0;
+    opacity: 1; /* Sempre visível se o pai estiver visível */
+    transform: translateY(0);
+    pointer-events: auto;
+    background-color: #f9f9f9; /* Fundo ligeiramente diferente */
+  }
+  .nav-item:hover .dropdown { /* Ajuste para o hover */
+      display: block;
+  }
+  .dropdown a {
+    font-size: 16px;
+    padding: 8px 0;
+  }
+
+  /* Login dentro do menu responsivo */
+  /* Login dentro do menu responsivo */
+  .login {
+    width: auto;
+    padding-top: 20px;
+    margin-left: 0;
+    /* Adicione text-align: center; aqui para centralizar o ícone de login */
+    text-align: center; 
+  }
+
+  .login-dropdown {
+    position: static;
+    width: 100%;
+    box-shadow: none;
+    border-radius: 0;
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+    background-color: #f9f9f9;
+  }
+
+  .login:hover .login-dropdown {
+      display: block;
+  }
+
+  .login-dropdown a {
+    display: block; /* Mantenha display block */
+    padding: 8px 10px;
+    font-size: 16px;
+    text-align: center; /* NOVO: Centraliza o texto dos links do dropdown de login */
+  }
+
+
+  /* Ajustar o efeito das mãozinhas para não aparecerem sobre o menu aberto */
+  .paint-splash-container {
+      z-index: 0; /* Abaixo do menu principal quando ele está aberto */
+  }
+  .nav-menu.is-open + .paint-splash-container { /* Se o menu estiver aberto, splashes vão para baixo */
+      z-index: 0;
+  }
+
+  .paint-splash img {
+    width: 40px;
+  }
+}
+
+/* Telas menores que 480px (Smartphones pequenos) */
+@media (max-width: 480px) {
+  nav {
+    height: 60px;
+    padding: 8px 10px;
+  }
+
+  .brand-logo img {
+    height: 45px;
+  }
+
+  .logo {
+    font-size: 18px;
+  }
+
+    .dropdown{
+       margin: 0 auto;
+      align-items: center;
+
+    }
+
+  .hamburger {
+    width: 28px;
+    height: 22px;
+  }
+  .hamburger.is-active .bar:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+  }
+  .hamburger.is-active .bar:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
+  }
+
+  .nav-menu {
+    padding-top: 60px; /* Ajustar padding para a nova altura da navbar */
+  }
+
+  .nav-item a {
+    font-size: 16px;
+  }
+  .dropdown a, .login-dropdown a {
+      font-size: 14px;
+      margin: 0 auto;
+  }
+
+  .paint-splash img {
+    width: 30px;
+  }
+
+  login img {
+    width: 28px;
+    height: 28px;
+  }
+
+  .login-dropdown a {
+    padding: 5px 8px;
+    font-size: 13px;
+    text-align: center; /* NOVO: Centraliza o texto dos links do dropdown de login */
+  }
+}
+
+/*Css do Nav-bar----------------------------------------------------------------------------*/
+
+
+
+
+#quem-somos {
+    position: relative;
+    padding: 4vh;
+    color: black;
+    text-align: center;
+
+}
+
+#quem-somos::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('../imagens/close-up-people-studying-together\ 1.png') center/cover no-repeat;
+    opacity: 0.8;
+    z-index: 0;
+    height: 100vh;
+
+
+
+}
+
+#quem-somos .content {
+    position: relative;
+    z-index: 2;
+
+}
+
+#quem-somos h1 {
+    font-size: 7vh;
+    color: black;
+    font-family: "Fredoka", sans-serif;
+    margin-bottom: 40px;
+    font-weight: 700;
+    position: relative;
+    
+}
+
+#quem-somos p {
+    font-size: 4vh;
+    line-height: 1.6;
+    color: black;
+    text-align: center;
+  
+    font-family: "Poppins", sans-serif;
+   
+}
+@media (max-width: 480px) {
+    .quem-somos h1 {
+        font-size: 2vh;
+      
+    }
+
+    .quem-somos p {
+        font-size: 1.4vh;
+        
+    }
+}
+.content2 {
+    display: flex;
+    align-items: flex-start;
+    margin-top: 38vh;
+   
+    background-color: #87cbeb
+    
+}
+
+.text-container {
+    display: flex;
+    font-size: 3.8vh;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 60%;
+    hyphens: auto;
+    margin: 0 auto;
+    text-align: justify;
+    font-family: "Poppins", sans-serif;
+}
+
+.icon {
+    max-width: 30vw;
+    height: auto;
+    background-color: rgb(64, 190, 248);
+    border-radius: 60%;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+ 
+}
+
+#nossa {
+    text-align: center;
+    margin-bottom: 4vh;
+    font-size: 6vh;
+    font-family: "Fredoka", sans-serif;
+    font-weight: 700;
+}
+
+.content3 {
+    
+    display: flex;
+    align-items: flex-start;
+    padding: 4vh;
+    background-color: #eaeef0;
+}
+
+
+.text-container2 {
+
+    font-size: 3.1vh;
+    flex-direction: column;
+
+    max-width: 80%;
+    margin-left: 4vw;
+
+font-family: "Poppins", sans-serif;
+display: flex;
+justify-items: center;
+align-items: center;
+justify-content: center;
+
+}
+
+.text-container2 h2 {
+    margin: 0 0 1vh 0;
+    text-align: left;
+}
+
+.text-container2 p {
+    margin: 0;
+    background-color: rgb(64, 190, 248);
+    padding: 2vh;
+    border-radius: 1.5vh;
+    box-shadow: 0.6vh 0.6vh 0.6vh 0.6vh rgba(16, 16, 127, 0.2);
+}
+
+.icon2 {
+    max-width: 27vw;
+    height: auto;
+    position: relative;
+    left: 3.5vw;
+    top: -1.5vh;
+}
+
+.nossa2 {
+    text-align: center;
+    margin-bottom: 6vh;
+    font-size: 5vh;
+    position: relative;
+    left: -1vw;
+    top: -2.5vh;
+    color: rgb(64, 190, 248);
+    font-family: "Fredoka", sans-serif;
+    font-weight: 700;
+}
+
+.nossa3 {
+    text-align: center;
+    margin-bottom: 4vh;
+    color: rgb(64, 190, 248);
+    font-size: 4vh;
+    font-family: "Fredoka", sans-serif;
+    font-weight: 700;
+}
+
+.escola-h2{
+
+    font-size: 6vh;
+    font-family: "Fredoka", sans-serif;
+text-align: center;
+}
+
+/*slides*/
+
+* Slideshow container */
+.slideshow-container {
+
+    width: 70%;
+    max-width: 100%; /* Garante que a imagem não ultrapasse o container */
+    height: auto;
+    margin: auto;
+    background-color: #5c6a70;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+
+}
+   
+
+
+
+
+/* Hide the images by default */
+.mySlides {
+  display: none;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* Caption text */
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.slide {
+    animation-name: slideIn;
+    animation-duration: 1.5s;
+ 
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+section.slider {
+    width: 70%;
+    height: 70%; /* Ajuste a altura conforme necessário */
+    padding: 0 !important;
+    overflow: hidden;
+    position: relative;
+    background: #fff; /* Fundo branco para o carrossel */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 8px 8px rgba(0, 0, 0, 0.1); /* Adiciona sombra ao contêiner */
+  }
+
+/* --- Estilos do Rodapé --- */
+.footer {
+    background: linear-gradient(to right, #4a235a, #6c3483); /* Gradiente roxo escuro e elegante */
+    color: #f8faff; /* Cor de texto muito clara para contraste */
+    text-align: center;
+    padding: 40px 20px; /* Mais padding para um visual espaçoso */
+    font-family: 'Poppins', sans-serif;
+    border-top: 5px solid #ad4467; /* Linha superior vibrante para separar do conteúdo */
+    box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.15); /* Sombra sutil na parte superior */
+    position: relative; /* Para possíveis elementos posicionados */
+    overflow: hidden; /* Garante que nada saia das bordas */
+    margin-top: 30px;
+  }
+  
+  .footer-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 30px; /* Espaçamento entre as colunas */
+    max-width: 1200px; /* Limita a largura para melhor leitura em telas grandes */
+    margin: 0 auto; /* Centraliza o container */
+  }
+  
+  .footer-column {
+    flex: 1;
+    min-width: 200px; /* Largura mínima para as colunas */
+    padding: 15px;
+    background-color: rgba(255, 255, 255, 0.08); /* Fundo semi-transparente para as colunas */
+    border-radius: 10px; /* Cantos arredondados para as colunas */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Sombra suave para as colunas */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .footer-column:hover {
+    background-color: rgba(255, 255, 255, 0.15); /* Fundo um pouco mais opaco no hover */
+    transform: translateY(-5px); /* Leve levantamento no hover */
+  }
+  
+  .footer-column h3 {
+    font-size: clamp(1.2em, 2.5vw, 1.8em); /* Tamanho responsivo para os títulos das colunas */
+    margin-bottom: 15px;
+    color: #f39c12; /* Cor de destaque para os títulos */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); /* Sombra no texto do título */
+    position: relative;
+    padding-bottom: 5px;
+  }
+  
+  .footer-column h3::after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 2px;
+    background-color: #f39c12; /* Linha de destaque abaixo do título */
+    margin: 5px auto 0;
+    border-radius: 1px;
+  }
+  
+  .footer-column ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  #Avenida{
+  margin-bottom: 20px;
+  }
+  
+  .footer-column ul li {
+    margin-bottom: 10px; /* Mais espaço entre os itens da lista */
+    align-items: center;
+  }
+  
+  .footer-column a {
+    color: #f8faff; /* Cor do texto do link */
+    text-decoration: none;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+    font-size: 15px;
+  }
+  
+  .footer-column a:hover {
+    color: #ffffff; /* Cor branca pura no hover */
+    text-decoration: underline;
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.5); /* Efeito de brilho no hover */
+  }
+  
+  .social-icons ul {
+    list-style: none;
+    padding: 0;
+    display: flex; /* Usa flexbox para alinhar ícones */
+    justify-content: center; /* Centraliza os ícones */
+    margin-top: 15px;
+    align-items: center;
+ 
+  }
+  
+  .social-icons li {
+    display: inline-block; /* Garante que cada item seja um bloco para margem */
+    margin: 0 2px; /* Espaçamento entre os ícones */
+  }
+  
+  .social-icons img {
+    vertical-align: middle;
+    width: clamp(30px, 5vw, 40px); /* Tamanho responsivo para os ícones */
+    height: auto;
+    margin: 0 auto;
+   
+    border-radius: 50%; /* Ícones circulares */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2); /* Sombra nos ícones */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-left: 5px;
+    margin-bottom: 2px;
+  }
+  
+  .social-icons img:hover {
+    transform: scale(1.15) rotate(5deg); /* Pequeno zoom e rotação no hover */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Sombra mais intensa no hover */
+  }
+  
+  .footer-bottom {
+    margin-top: 30px; /* Mais espaço acima do texto de copyright */
+    font-size: clamp(0.8em, 1.5vw, 1em); /* Tamanho responsivo para o texto de copyright */
+    color: rgba(255, 255, 255, 0.7); /* Cor mais suave para o texto inferior */
+    padding-top: 20px; /* Padding interno para separar do conteúdo acima */
+    border-top: 1px solid rgba(255, 255, 255, 0.2); /* Linha fina para separar */
+  }
+  
+  /* --- Media Queries para Responsividade --- */
+  @media (max-width: 768px) {
+    .footer {
+        padding: 30px 15px;
+    }
+  
+    .footer-container {
+        flex-direction: column; /* Colunas empilhadas em telas menores */
+        gap: 25px;
+    }
+  
+    .footer-column {
+        min-width: 100%; /* Ocupa a largura total */
+        padding: 15px 20px;
+    }
+  
+    .footer-column h3 {
+        font-size: clamp(1.1em, 4vw, 1.5em);
+    }
+  
+    .footer-column ul li {
+        margin-bottom: 8px;
+    }
+  
+    .social-icons img {
+        width: clamp(25px, 8vw, 35px);
+    }
+  
+    .footer-bottom {
+        margin-top: 25px;
+        font-size: clamp(0.75em, 2.5vw, 0.9em);
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .footer {
+        padding: 25px 10px;
+    }
+  
+    .footer-column {
+        padding: 10px 15px;
+    }
+  
+    .footer-column h3 {
+        font-size: clamp(1em, 5vw, 1.3em);
+    }
+  
+    .social-icons img {
+        width: clamp(20px, 10vw, 30px);
+    }
+  }
+  

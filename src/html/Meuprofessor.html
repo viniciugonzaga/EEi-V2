@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap" rel="stylesheet">
+    <link rel="icon" href="logo.png" type="image/x-icon">
+    <title>Meu Professor</title>
+    <link rel="stylesheet" href="../css/meuprofessor.css">
+</head>
+<body>
+    <nav class="navbar">
+        <img class="img1" src="../imagens/logo.png" alt="Logo">
+        <a class="nav-link" href="indexhome.html">Home</a>
+        <a class="nav-link2" href="index.quemsomos.html">Quem somos</a>
+        <a class="nav-link3" href="indexberçário.html">Berçário</a>
+        <a class="nav-link4" href="indexinfantil.html">Educação Infantil</a>
+        <a class="nav-link5" href="matriculajunto.html">Matrícula</a>
+        <nav class="dropdown">
+            <a class="dropbtn">Outros</a>
+            <div class="dropdown-content">
+                <a href="index.transporte.html">Transporte</a>
+                <a href="feedback.html">Feedback</a>
+            </div>
+        </nav>
+        <nav class="dropdown1">
+            <a target="_blank" class="dropbtn1"><img src="../imagens/login (1).png" alt="Login" title="Login"></a>
+            <div class="dropdown-content1">
+                <a href="login.html">Pais</a>
+                <a href="loginprofessor.html">Professor</a>
+            </div>
+        </nav>
+    </nav>
+
+    
+    <div class="meio">
+        <section id="professor" class="professor-info">
+            <div class="info-container">
+                <img class="professor-img" src="../imagens/professora2.jpg" alt="Foto do professor">
+                <div class="info-text">
+                    <h3>Nome: Caroline Almeida Costa</h3>
+                    <p>Idade: 36 anos</p>
+                    <p>Classe: Berçário - A</p>
+                    <p>Formação: Pedagogia pela Universidade Federal</p>
+                    <p>Email: carolinealmeidacosta@gmail.com</p>
+                    <p>Anos de Experiência: 16 anos</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    
+    <section id="alunos" class="alunos">
+        <h2>Minha Sala de Aula </h2>
+
+        
+        <div class="card-container">
+           
+            <div class="card" onclick="mostrarAluno('João Victor Lorenzo', '5 anos', 'Adora ler livros', '../imagens/joão.jpg')">
+                
+                <h4>Aluno: João</h4>
+                
+            </div>
+            <div class="card" onclick="mostrarAluno('Maria Luisa', '4 anos', 'Gosta de pintar', '../imagens/Maria.jpg')">
+                <h4>Aluno: Maria</h4>
+            </div>
+            <div class="card" onclick="mostrarAluno('Lucas Hugo da Silva', '6 anos', 'Ama esportes', '../imagens/Lucas.jpg')">
+                <h4>Aluno: Lucas</h4>
+            </div>
+            <div class="card" onclick="mostrarAluno('Ana Julia ', '5 anos', 'Curiosa e inteligente', '../imagens/Ana.jpg')">
+                <h4>Aluno: Ana</h4>
+            </div>
+            <div class="card" onclick="mostrarAluno('Pedro Henrique', '5 anos', 'Gosta de ciências', '../imagens/Pedro.jpg')">
+                <h4>Aluno: Pedro</h4>
+            </div>
+            <div class="card" onclick="mostrarAluno('Felipe Oliveira', '6 anos', 'Sempre ativo', '../imagens/Felipe.jpg')">
+                <h4>Aluno: Felipe</h4>
+            </div>
+            
+        </div>
+    </section>
+
+
+    
+    <div id="modalAluno" class="modal">
+        <div class="modal-content">
+            <button class="close-button" onclick="fecharModal1()">Fechar</button>
+            <div class="modal-left">
+                <h3 id="alunoNome"></h3>
+                <p id="alunoIdade"></p>
+                <p id="alunoDescricao"></p>
+            </div>
+            <button class="botao" onclick="abrirModalAlerta('Alerta de Saúde', ['Alergia a amendoim', 'Problema respiratório'])">
+                Ver Alerta
+            </button>
+
+
+            <div class="modal-right">
+                <img id="alunoFoto" src="" alt="Foto do aluno" class="aluno-img">
+            </div>
+        </div>
+    </div>
+
+
+   
+    <div id="modalAlerta" class="modal alerta">
+        <div class="modal-content alerta-content">
+            <button class="close-button alerta-close" onclick="fecharModal('modalAlerta')">Fechar</button>
+            <h3 id="alertaTitulo"></h3>
+            <ul id="alertaProblemas"></ul>
+        </div>
+    </div>
+
+    <script src="../js/professor.js"></script>
+
+
+   
+    
+
+
+
+
+
+</body>
+</html>

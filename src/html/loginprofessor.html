@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="../css/loginprofessor.css">
+    <link rel="icon" href="../imagens/logo.png" type="image/x-icon">
+    <title>Login do Professor</title>
+    
+</head>
+<body>
+
+    <div class="container" id="container">
+        <div class="form-container sign-up">
+            <form id="signUpForm">
+
+              <img class="logo" src="../imagens/logo.png">
+                <h1>Criar uma Conta</h1>
+                <span>Use seu email registrado e sua senha</span>
+                </br>
+                <input type="text" placeholder="Nome" id="nome" required>
+                <input type="email" placeholder="Email" id="email" required>
+                <input type="password" placeholder="Senha" id="senha" required>
+                <input type="number" placeholder="NP" id="np" required>
+                <button type="submit" class="proximo">Entrar</button>
+            </form>
+        </div>
+        <div class="form-container sign-in">
+            <form id="signInForm">
+
+            <img class="logo" src="../imagens/logo.png">
+                <h1>Entrar</h1>
+
+                <span>Use seu email registrado e sua senha</span>
+                <input type="email" placeholder="Email" id="loginEmail" required>
+                <input type="password" placeholder="Senha" id="loginSenha" required>
+                <input type="number" placeholder="NP" id="loginNp" required>
+                <a href="#">Esqueceu sua senha?</a>
+                <button type="submit" class="entrar">Entrar</button>
+            </form>
+        </div>
+        <div class="toggle-container">
+            <div class="toggle">
+                <div class="toggle-panel toggle-left">
+                    <h1>Bem vindo de volta!</h1>
+                    <p>Insira seus dados pessoais para entrar em nosso site</p>
+                    <button class="hidden" id="login">Entrar</button>
+                </div>
+                <div class="toggle-panel toggle-right">
+                    <h1>Olá Professor!</h1>
+                    <p>Primeira vez aqui? Registre seus dados pessoais para ter acesso ao nosso site</p>
+                    <button class="register" id="register">Inscrever-se</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <script>
+        document.querySelector('.proximo').addEventListener('click', function(event) {
+            event.preventDefault();
+            const nome = document.getElementById("nome").value;
+            const email = document.getElementById("email").value;
+            const senha = document.getElementById("senha").value;
+            const np = document.getElementById("np").value;
+
+            if (nome && email && senha && np) {
+                window.location.href = 'fotoprofessor.html';
+            } else {
+                alert("Por favor, preencha todos os campos antes de continuar.");
+            }
+        });
+
+        document.querySelector('.entrar').addEventListener('click', function(event) {
+            event.preventDefault();
+            const loginEmail = document.getElementById("loginEmail").value;
+            const loginSenha = document.getElementById("loginSenha").value;
+            const loginNp = document.getElementById("loginNp").value;
+
+            if (loginEmail && loginSenha && loginNp) {
+                window.location.href = 'Meuprofessor.html'; 
+                
+            } else {
+                alert("Por favor, preencha todos os campos antes de continuar.");
+            }
+        });
+    </script>
+
+    <script src="../js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pagamento com Pix</title>
+  <link rel="icon" href="../imagens/logo.png" type="image/x-icon">
+  <style>
+    body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; 
+}
+
+.container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 90%; 
+    width: 400px; 
+    height: auto; 
+}
+
+h1 {
+    color: #4CAF50;
+}
+
+.pix-key {
+    font-size: 1.5rem; 
+    font-weight: bold;
+    margin: 20px 0;
+    color: #333;
+    background-color: #eaeaea;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.button-container {
+    margin-top: 20px;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem; 
+    cursor: pointer;
+    border-radius: 5px;
+    width: 100%; 
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+.success-message {
+    display: none;
+    font-size: 1.125rem; 
+    color: #4CAF50;
+}
+
+.processing {
+    display: none;
+    margin: 20px 0;
+}
+
+
+@media (max-width: 480px) {
+    .container {
+        padding: 15px; 
+    }
+
+    h1 {
+        font-size: 1.5rem; 
+    }
+
+    .pix-key {
+        font-size: 1.2rem; 
+    }
+
+    button {
+        font-size: 0.9rem; 
+    }
+}
+
+
+   
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Pagamento com Pix</h1>
+    
+     
+    <h3>Valor: 450,00</h3>
+    <h3>Instituição: EEI Pequenos Sonhos</h3>
+    <p>Utilize a chave Pix abaixo para realizar o pagamento.</p>
+    <div class="pix-key">Chave Pix: 1196305-4073</div>
+
+    <div class="button-container">
+      <button id="confirmar-pagamento">Confirmar Pagamento</button>
+    </div>
+
+    <!-- Imagem de processamento -->
+    <div class="processing" id="processing">
+      <img src="../imagens/processando.gif" alt="Processando..." width="100">
+      <p>Processando pagamento...</p>
+    </div>
+
+    <!-- Mensagem de sucesso -->
+    <div class="success-message" id="success-message">
+        <img src="../imagens/verifica.png" alt="Sucesso" width="100">
+      <h1>Matrícula realizada com sucesso!</h1>
+      <button class="btn-voltar">Voltar</button>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('confirmar-pagamento').addEventListener('click', function() {
+      // Oculta a chave Pix e o botão de pagamento
+      document.querySelector('.pix-key').style.display = 'none';
+      document.querySelector('.button-container').style.display = 'none';
+
+      // Exibe a imagem de processamento
+      document.getElementById('processing').style.display = 'block';
+
+      // Simula um tempo de processamento
+      setTimeout(function() {
+        // Oculta a imagem de processamento
+        document.getElementById('processing').style.display = 'none';
+
+        // Exibe a mensagem de sucesso
+        document.getElementById('success-message').style.display = 'block';
+      }, 3000); // Simula um atraso de 3 segundos
+    });
+  </script>
+
+<script>
+  
+    const btnVoltar = document.querySelector('.btn-voltar');
+  
+      btnVoltar.addEventListener('click', () => {
+        window.location.href = 'matriculajunto.html'; 
+      });
+      </script>
+
+</body>
+</html>

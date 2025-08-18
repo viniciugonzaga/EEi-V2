@@ -1,0 +1,1756 @@
+body {
+    background: linear-gradient(180deg, #ecffecc0 34%);
+    margin-left: 0;
+    margin-right: 0;
+}
+
+
+/*css do Nav-bar----------------------------------------------------------------------------*/
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Open+Sans:wght@400;600&display=swap');
+
+
+/* Base Navigation Bar Styles */
+nav {
+  background-color: #ffffff;
+  padding: 15px 30px;
+  display: flex;
+  align-items: center;
+  width: 1250px;
+  margin: 0 auto;
+  height: 120px; /* Sua altura atual */
+  z-index: 1000; /* Mantenha um z-index alto para a navbar */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.171);
+  border-radius: 30px;
+  border-bottom: 2.50px solid #ff4c97;
+  gap: 50px;
+  margin-top: 20px;
+ 
+}
+
+/* Logo and School Name Container */
+.brand-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  /* padding-right: 40px; REMOVIDO: Nao é mais necessário com space-between */
+}
+
+.brand-logo img {
+  height: 100px;
+  width: auto;
+  filter: drop-shadow(1px 1px 2px rgba(0,0,0,0.1));
+}
+
+
+
+/* NOVO: Contêiner que agrupa nav-links e login para desktop */
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 40px; /* Espaço entre nav-links e login */
+  margin-top: 20px;
+  /* margin-left: 25px; REMOVIDO: Nao é mais necessário */
+}
+
+/* Navigation Links Container */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 40px; /* Espaço entre os itens de navegação */
+}
+
+/* Individual Navigation Item - MANTENHA O RESTO DAQUI PARA BAIXO IGUAL AO SEU CSS ATUAL */
+.nav-item {
+  position: relative;
+  padding-bottom: 10px;
+}
+
+/* Styling for the Navigation Links */
+.nav-item a {
+  text-decoration: none;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 28px;
+  padding: 10px 0;
+  border-radius: 0;
+  transition: all 0.3s ease-in-out;
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+  font-family: 'Hubballi', sans-serif;
+  
+}
+
+/* Individual colors for each nav item */
+.nav-item:nth-child(1) a { color: #783dbb; }
+.nav-item:nth-child(2) a { color: #5bc0de; }
+.nav-item:nth-child(3) a { color: #f0664e; }
+.nav-item:nth-child(4) a { color: #7bd94f; }
+.nav-item:nth-child(5) a { color: #523ddd; }
+.nav-item:nth-child(6) a { color: #8a2be2; }
+
+/* Animation for Navigation Links (Underline Effect) */
+.nav-item a::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  background-color: currentColor;
+  bottom: 0;
+  left: 0;
+  transform: scaleX(0);
+  transform-origin: left;
+  border-radius: 2px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.nav-item a:hover::before {
+  transform: scaleX(1);
+}
+
+.nav-item a.active, .nav-item a:focus {
+  background-color: transparent;
+  box-shadow: none;
+}
+
+.nav-item a.active::before {
+  transform: scaleX(1);
+}
+
+/* Dropdown Menu Styles */
+.dropdown {
+  display: none;
+  position: absolute; /* Mantenha absolute em relação ao nav-item pai */
+  top: calc(100% - 5px); /* Posição relativa ao nav-item pai */
+  /* Remova left/right se existirem aqui, pois position: absolute já os alinha */
+  background-color: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  min-width: 160px;
+  z-index: 1001; /* Z-index alto para aparecer acima de outros conteúdos */
+  overflow: hidden; /* Mantenha para o dropdown não ter conteúdo "voando" */
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  pointer-events: none;
+}
+
+/* Display Dropdown on Hover */
+.nav-item:hover .dropdown {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* Dropdown Link Styles */
+.dropdown a {
+  display: block;
+  padding: 12px 15px;
+  text-decoration: none;
+  color: #555555;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 15px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  border-radius: 0;
+}
+
+/* Dropdown Link Hover Effect */
+.dropdown a:hover {
+  background-color: #f5f5f5;
+  color: #333333;
+}
+
+/* Login Icon Container */
+.login {
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  padding-bottom: 10px; /* Mantenha para o dropdown do login */
+  /* margin-left: auto; REMOVIDO: Nao é mais necessário com o novo nav-menu */
+}
+
+/* Login Icon Image */
+.login img {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Login Icon Hover Effect */
+.login:hover {
+  transform: scale(1.1);
+}
+
+/* Login Dropdown Styles */
+.login-dropdown {
+  display: none;
+  position: absolute;
+  top: calc(100% - 5px);
+  right: 0;
+  background-color: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  min-width: 150px;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  pointer-events: none;
+}
+
+/* Display Login Dropdown on Hover */
+.login:hover .login-dropdown {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* Login Dropdown Link Styles */
+.login-dropdown a {
+  display: block;
+  padding: 12px 15px;
+  text-decoration: none;
+  color: #000000;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 15px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Login Dropdown Link Hover Effect */
+.login-dropdown a:hover {
+  background-color: #f5f5f5;
+  color: #333;
+}
+
+/* --- CSS DOS SPLASHES DE TINTA (Mantenha o seu existente) --- */
+.paint-splash-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.paint-splash {
+  position: absolute;
+  opacity: 0;
+  transform: scale(0.5) rotate(0deg);
+  animation: fadeAndGrow 1.5s forwards, fadeOut 1s 1s forwards;
+  will-change: opacity, transform;
+}
+
+.paint-splash img {
+  width: 60px;
+  height: auto;
+  filter: saturate(1.5) opacity(0.3);
+}
+
+@keyframes fadeAndGrow {
+  0% { opacity: 0; transform: scale(0.3) rotate(0deg); }
+  20% { opacity: 0.5; transform: scale(0.8) rotate(15deg); }
+  100% { opacity: 0.3; transform: scale(1) rotate(20deg); }
+}
+
+@keyframes fadeOut {
+    0% { opacity: 0.3; }
+    100% { opacity: 0; }
+}
+
+.nav-manual,
+.nav-auto {
+    position: absolute;
+    width: 100%;
+    bottom: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.nav-manual .manual-btn,
+.nav-auto div {
+    border: 2px solid white;
+    border-radius: 50%;
+    padding: 15px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.nav-manual .manual-btn:not(:last-child),
+.nav-auto div:not(:last-child) {
+    margin-right: 10px;
+}
+
+.nav-manual .manual-btn:hover {
+    background-color: #ff0054;
+}
+
+#imagem1:checked ~ .nav-auto .auto-btn1,
+#imagem2:checked ~ .nav-auto .auto-btn2,
+#imagem3:checked ~ .nav-auto .auto-btn3 {
+    background-color: whitesmoke;
+}
+
+#imagem1:checked ~ .slide-box:first-of-type {
+    margin-left: 0%;
+}
+
+#imagem2:checked ~ .slide-box:first-of-type {
+    margin-left: -25%;
+}
+
+#imagem3:checked ~ .slide-box:first-of-type {
+    margin-left: -50%;
+}
+
+/* --- Media Queries para Responsividade --- */
+
+/* Esconde o hambúrguer por padrão em telas grandes */
+.hamburger {
+  display: none;
+}
+/* Telas menores que 1080px (Laptops, Tablets em modo paisagem) */
+@media (max-width: 1280px) {
+  nav {
+    padding: 10px 20px;
+    width: 1100px;
+    height: 100px; /* Ajustar altura da navbar */
+  }
+}
+
+
+/* Telas menores que 1080px (Laptops, Tablets em modo paisagem) */
+@media (max-width: 1080px) {
+  nav {
+    padding: 10px 20px;
+    width: 800px;
+    height: 80px; /* Ajustar altura da navbar */
+  }
+
+  .brand-logo img {
+    height: 65px;
+  }
+
+  .logo {
+    font-size: 24px;
+  }
+
+  .nav-links {
+    gap: 25px;
+    
+  }
+
+  .nav-item a {
+    font-size: 16px;
+    padding: 6px 0;
+    
+  }
+
+  .login img {
+    width: 32px;
+    height: 32px;
+  }
+
+  .paint-splash img {
+    width: 50px;
+  }
+}
+
+/* Telas menores que 780px (Tablets em modo retrato, Smartphones maiores) */
+@media (max-width: 780px) {
+  nav {
+    height: 70px; /* Altura padrão mais compacta para mobile */
+    width: 200px;
+    padding: 10px 15px;
+  }
+
+  .brand-logo img {
+    height: 55px;
+  }
+
+  .logo {
+    font-size: 22px;
+  }
+
+  /* Mostrar o botão hambúrguer */
+  .hamburger {
+    display: flex; /* Mudei de block para flex para centralizar as barras */
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px; /* Largura do ícone */
+    height: 25px; /* Altura do ícone */
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1001; /* Acima de tudo para ser clicável */
+    position: relative; /* Para animar o ícone */
+  }
+
+  .hamburger .bar {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: #ff6699; /* Cor das barras do hambúrguer */
+    border-radius: 2px;
+    transition: all 0.3s ease-in-out;
+  }
+
+  /* Animação do X no hambúrguer */
+  .hamburger.is-active .bar:nth-child(1) {
+    transform: translateY(11px) rotate(45deg);
+  }
+  .hamburger.is-active .bar:nth-child(2) {
+    opacity: 0;
+  }
+  .hamburger.is-active .bar:nth-child(3) {
+    transform: translateY(-11px) rotate(-45deg);
+  }
+
+  /* Esconder o nav-menu e posicioná-lo fora da tela */
+  .nav-menu {
+    display: flex; /* Manter flex para layout interno */
+    flex-direction: column;
+    position: fixed;
+    top: 0; /* Começa do topo da tela */
+    left: 100%; /* Escondido para a direita */
+    width: 100%;
+    height: 100vh; /* Ocupa a altura total da viewport */
+    background-color: #ffffff; /* Fundo do menu quando aberto */
+    transition: left 0.3s ease-in-out; /* Animação de slide */
+    padding-top: 80px; /* Espaço para não cobrir a navbar */
+    align-items: center; /* Centraliza itens */
+    justify-content: flex-start; /* Alinha ao topo */
+    z-index: 999; /* Abaixo da navbar fixa */
+    overflow-y: auto; /* Permite scroll se o conteúdo for muito grande */
+  }
+
+  /* Quando o menu está ativo (aberto) */
+  .nav-menu.is-open {
+    left: 0; /* Desliza para a esquerda, ficando visível */
+  }
+
+  /* Ajustes dos nav-links dentro do menu responsivo */
+  .nav-links {
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+    margin-left: 0;
+    padding: 20px 0;
+    border-bottom: 1px solid #eee; /* Separador */
+ 
+  }
+
+  .nav-item {
+    width: auto; /* Deixa o item se ajustar ao seu conteúdo */
+    text-align: center;
+    padding-bottom: 0;
+    
+  }
+
+  .nav-item a {
+    font-size: 18px; /* Links maiores no menu aberto */
+    padding: 10px 0;
+  }
+
+  /* Dropdowns no menu responsivo */
+  .dropdown {
+    position: static; /* Dentro do fluxo */
+    width: 100%;
+    box-shadow: none;
+    align-items: center;
+    margin: 0 auto;
+    border-radius: 0;
+    opacity: 1; /* Sempre visível se o pai estiver visível */
+    transform: translateY(0);
+    pointer-events: auto;
+    background-color: #f9f9f9; /* Fundo ligeiramente diferente */
+  }
+  .nav-item:hover .dropdown { /* Ajuste para o hover */
+      display: block;
+  }
+  .dropdown a {
+    font-size: 16px;
+    padding: 8px 0;
+  }
+
+  /* Login dentro do menu responsivo */
+  /* Login dentro do menu responsivo */
+  .login {
+    width: auto;
+    padding-top: 20px;
+    margin-left: 0;
+    /* Adicione text-align: center; aqui para centralizar o ícone de login */
+    text-align: center; 
+  }
+
+  .login-dropdown {
+    position: static;
+    width: 100%;
+    box-shadow: none;
+    border-radius: 0;
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+    background-color: #f9f9f9;
+  }
+
+  .login:hover .login-dropdown {
+      display: block;
+  }
+
+  .login-dropdown a {
+    display: block; /* Mantenha display block */
+    padding: 8px 10px;
+    font-size: 16px;
+    text-align: center; /* NOVO: Centraliza o texto dos links do dropdown de login */
+  }
+
+
+  /* Ajustar o efeito das mãozinhas para não aparecerem sobre o menu aberto */
+  .paint-splash-container {
+      z-index: 0; /* Abaixo do menu principal quando ele está aberto */
+  }
+  .nav-menu.is-open + .paint-splash-container { /* Se o menu estiver aberto, splashes vão para baixo */
+      z-index: 0;
+  }
+
+  .paint-splash img {
+    width: 40px;
+  }
+}
+
+/* Telas menores que 480px (Smartphones pequenos) */
+@media (max-width: 480px) {
+  nav {
+    height: 60px;
+      width: 150px;
+    padding: 8px 10px;
+  }
+
+  .brand-logo img {
+    height: 45px;
+  }
+
+  .logo {
+    font-size: 18px;
+  }
+
+    .dropdown{
+       margin: 0 auto;
+      align-items: center;
+
+    }
+
+  .hamburger {
+    width: 28px;
+    height: 22px;
+  }
+  .hamburger.is-active .bar:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+  }
+  .hamburger.is-active .bar:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
+  }
+
+  .nav-menu {
+    padding-top: 60px; /* Ajustar padding para a nova altura da navbar */
+  }
+
+  .nav-item a {
+    font-size: 16px;
+  }
+  .dropdown a, .login-dropdown a {
+      font-size: 14px;
+      margin: 0 auto;
+  }
+
+  .paint-splash img {
+    width: 30px;
+  }
+
+  login img {
+    width: 28px;
+    height: 28px;
+  }
+
+  .login-dropdown a {
+    padding: 5px 8px;
+    font-size: 13px;
+    text-align: center; /* NOVO: Centraliza o texto dos links do dropdown de login */
+  }
+}
+
+/*Css do Nav-bar----------------------------------------------------------------------------*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+/*Css da sessão 1 ----------------------------------------------------------------------------*/
+/* Adicione estas variáveis CSS no topo do seu arquivo style.css */
+:root {
+  --nav-color-1: #783dbb;
+  --nav-color-2: #5bc0de;
+  --nav-color-3: #f0664e;
+  --nav-color-4: #7bd94f;
+  --nav-color-5: #523ddd;
+  --nav-color-6: #8a2be2;
+}
+
+
+/* ... Código CSS que já existe ... */
+
+/* Estilos para a seção principal */
+.main-content {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    margin-top: 10px;
+}
+
+.content-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 90px;
+    width: 1250px;
+    background-color: #ffffff96;
+    border-radius: 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.212);
+    padding: 40px;
+    border: 1px solid #e0e0e0;
+}
+
+.text-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+    margin-bottom: 50px;
+    gap: 5px;
+}
+
+.school-initials {
+    font-size: 60px;
+    font-weight: bold;
+    color: #333;
+    line-height: 1;
+    margin: 0;
+    font-family: 'Hubballi', sans-serif;
+}
+
+.school-name {
+    font-size: 60px;
+    font-weight: bold;
+    color: #333;
+    line-height: 1;
+    margin: 0;
+    font-family: 'Hubballi', sans-serif;
+}
+
+
+
+.school-name-highlight {
+    font-size: 60px;
+    font-weight: bold;
+    color: transparent; /* A cor do texto deve ser transparente para que o gradiente apareça */
+    line-height: 1;
+    font-family: 'Hubballi', sans-serif;
+    margin: 0;
+    
+    /* Configuração do fundo gradiente */
+    background: linear-gradient(90deg, #00B5FF, #FF6585, #00B5FF);
+    background-size: 200% 100%; /* Permite que o gradiente se estenda, criando um efeito de movimento */
+    background-clip: text; /* Isso é a chave: o fundo é "cortado" para o formato do texto */
+    -webkit-background-clip: text; /* Suporte para navegadores WebKit */
+    -webkit-text-fill-color: transparent; /* A cor do texto precisa ser transparente */
+
+    /* Aplica a animação ao fundo */
+    animation: gradient-flow 10s ease-in-out infinite;
+}
+
+/* Animação que move a posição do gradiente */
+@keyframes gradient-flow {
+    0% {
+        background-position: 200% center;
+    }
+    50% {
+        background-position: 0% center;
+    }
+    100% {
+        background-position: 200% center;
+    }
+}
+
+.school-slogan {
+    font-size: 20px;
+    color: #666;
+    margin-top: 15px;
+    font-family: 'Poppins', sans-serif;
+    margin-left: 3px;
+}
+
+/* ---------------------------------------------------- */
+/* Novo Estilo para a caixa da imagem com borda animada */
+/* ---------------------------------------------------- */
+/* Adicione estas variáveis CSS no topo do seu arquivo style.css */
+.image-container {
+    width: 600px;
+    height: 400px;
+    position: relative;
+    z-index: 1; 
+    
+    /* Cor de fundo para o interior do container */
+    background-color: #f7f7f7;
+    
+    /* Arredonda as bordas do container */
+    border-radius: 20px;
+    
+    /* Oculta o conteúdo que ultrapassa as bordas arredondadas */
+    overflow: hidden;
+    
+    /* Configuração da borda gradiente */
+    border: 3px solid transparent;
+    background-image: 
+        linear-gradient(#f7f7f7, #f7f7f7), /* Cor de fundo para o conteúdo */
+        linear-gradient(to bottom, #9BE2FF, #9BFFB8, #FF9BB0); /* O gradiente para a borda */
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+}
+
+.carousel-track {
+    display: flex;
+    transition: transform 1.5s cubic-bezier(0.8, 0, 0.2, 1);
+    height: 100%;
+}
+
+.carousel-slide {
+    flex-shrink: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.carousel-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* A borda arredondada da imagem agora não é mais necessária, 
+       pois o overflow: hidden da div pai já a corta */
+}
+/* ----------------------- SESSÃO PEDAGÓGICA ----------------------------- */
+.pedagogical-section {
+  padding: 60px 20px;
+
+}
+
+.content-wrapper2 {
+  max-width: 1250px;
+  margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
+ 
+  border-radius: 30px;
+  margin-bottom: -50px;
+  margin-top: -50px;
+  padding: 90px;
+ 
+}
+
+/* cabeçalho */
+.pedagogical-header {
+  text-align: left;
+  margin-bottom: 45px;
+}
+.pedagogical-header h2 {
+  font-family: 'Hubballi', sans-serif;
+  font-size: 2.6rem;
+  font-weight: bold;
+  color: #444;
+  margin: 0; /* remove espaço extra */
+  line-height: 1.2;
+ 
+}
+
+.pedagogical-header .highlight {
+  color: #00B5FF;
+}
+
+.pedagogical-header p {
+  font-family: Arial, sans-serif;
+  font-size: 1.15rem;
+  color: #777;
+  margin: 6px 0 0; /* pequeno espaço abaixo do título */
+  max-width: 800px;
+  line-height: 1.5;
+}
+
+
+.pedagogical-cards-container {
+  display: flex;
+  justify-content: center; /* Centraliza horizontalmente */
+  gap: 60px; /* Espaço entre cards */
+  flex-wrap: wrap; /* Em telas menores, quebra a linha */
+  width: 100%;
+}
+
+/* --- Card individual --- */
+.pedagogical-card {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 20px;
+    background-color: #fff;
+    border: 2px solid #9BE2FF;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.233);
+
+    /* Novo formato mais quadrado */
+    width: 300px;
+    height: 180px;
+
+    transition: transform 0.55s ease, box-shadow 0.25s ease, opacity 0.5s ease-out, transform 0.5s ease-out;
+    opacity: 0; /* Inicialmente invisível */
+    transform: translateY(50px); /* Inicialmente um pouco abaixo */
+}
+
+.pedagogical-card.appear {
+    opacity: 1; /* Torna visível */
+    transform: translateY(0); /* Move para a posição final */
+}
+
+.pedagogical-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 30px rgba(3,45,54,0.08);
+}
+
+/* coluna esquerda do card: ícone + thumb (imagem pequena) alinhados ao canto esquerdo */
+.card-left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+/* ícone com borda azul claro #00B5FF */
+.card-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 12px;
+  border: 3px solid #00B5FF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+  box-sizing: border-box;
+}
+
+/* ícone interno */
+.card-icon img {
+  width: 60%;
+  height: 60%;
+  object-fit: contain;
+  display: block;
+}
+
+/* pequena imagem/mini-thumb na extrema esquerda (opcional) */
+.card-thumb {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid rgba(0,181,255,0.12);
+  background: #fff;
+}
+
+/* corpo do card: título e subtítulo, alinhados à esquerda */
+.card-body {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 6px;
+  text-align: left;
+}
+
+.pedagogical-card h3 {
+  font-family: 'Hubballi', sans-serif;
+  font-size: 1.15rem;
+  color: #333;
+  margin: 0;
+  line-height: 1.1;
+}
+
+.card-sub {
+  font-family: Arial, sans-serif;
+  font-size: 0.98rem;
+  color: #666;
+  margin: 0;
+}
+/* ----------------------- SESSÃO MATRÍCULA ----------------------------- */
+.matricula-section {
+  padding: 60px 20px;
+
+   margin-bottom: -50px;
+}
+
+.content-wrapper3 {
+  max-width: 1250px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column; /* Empilha título e cards */
+  align-items: center; /* Centraliza tudo */
+}
+
+.matricula-header {
+  margin-bottom: 100px;
+  text-align: left;
+  margin-right: 350px;
+}
+
+.matricula-header h2 {
+  font-family: 'Hubballi', sans-serif;
+  font-size: 2.6rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+.matricula-header .highlight {
+  color: #48FF7D;
+}
+
+.matricula-header p {
+  font-family: Arial, sans-serif;
+  font-size: 1.15rem;
+  color: #555;
+  margin-top: 6px;
+  max-width: 700px;
+  line-height: 1.5;
+}
+
+.matricula-cards-container {
+  display: flex;
+  justify-content: center;
+  gap: 100px;
+  flex-wrap: wrap; /* Para quebrar no mobile */
+}
+
+
+/* --- Card da Matrícula (Com animações e borda gradiente) --- */
+.matricula-card {
+    background-color: #fff;
+    border-radius: 16px;
+    padding: 20px;
+    text-align: center;
+    width: 430px;
+    min-height: 470px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    /* Estado inicial da borda */
+    border: 2px solid #84FFA8; /* Borda inicial verde claro */
+    transition: border-color 1s ease-in-out; /* Transição da cor da borda */
+}
+
+/* Classe para a animação de balanço */
+.matricula-card.active-shake {
+    animation: shake 1s ease-in-out;
+}
+
+/* Animação do balanço */
+@keyframes shake {
+    0%, 100% {
+        transform: rotate(0deg);
+    }
+    25% {
+        transform: rotate(-0.5deg);
+    }
+    75% {
+        transform: rotate(0.5deg);
+    }
+}
+
+.matricula-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+/* Classe para a animação da borda */
+.matricula-card.border-fill {
+    border-color: #32d177; /* Verde um pouco mais escuro, quando a animação termina */
+    transition: border-color 1s ease-in-out; /* Transição da cor da borda */
+}
+
+.matricula-card h3 {
+  font-size: 3.2rem;
+  font-family: 'Hubballi', sans-serif;
+  font-weight: 400; /* Equivalente a "Regular" */
+  line-height: 1; /* 100% de line-height é igual a 1 */
+  letter-spacing: 0; /* 0% de letter-spacing é igual a 0 */
+  text-align: center;
+  margin: 0;
+  color: #000000;
+   align-items: center;
+   margin-bottom: 30px;
+}
+
+.matricula-card h4 {
+  font-size: 1.4rem;
+  padding: 10px;
+  color: #111111;
+  margin: 6px 0 10px;
+  font-family: Poppins;
+  font-weight: 400;
+font-style: Regular;
+line-height: 100%;
+letter-spacing: 0%;
+text-align: center;
+
+}
+
+.matricula-card p {
+  font-size: 1.2rem;
+  font-family: Poppins;
+  font-weight: 400;
+  line-height: 100%;
+  text-align: center;
+  padding: 10px;
+  width: 250px;
+  margin: 10px 0; /* margem simples */
+}
+
+.matricula-card button {
+  margin-top: 40px; /* Espaço entre o texto e o botão */
+  padding: 12px 28px; /* Botão mais alto e largo */
+  margin-bottom: -70px;
+  background: none;
+  border: 2px solid #84FFA8;
+  border-radius: 30px; /* Arredondamento maior */
+  font-size: 1rem; /* Texto um pouco maior */
+  cursor: pointer;
+  color: #1a1a1a;
+  font-size: 1.2rem;
+  width: 200px;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+.matricula-card button:hover {
+  background-color: #84FFA8;
+  color: #fff;
+}
+
+/* Contêiner do efeito */
+.flip-card {
+  background-color: transparent;
+  width: 300px;
+  height: 180px;
+  perspective: 1000px; /* Necessário para o 3D */
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+/* Frente e verso */
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 15px;
+}
+
+/* Frente mantém o estilo original */
+.flip-card-front .pedagogical-card {
+  width: 100%;
+  height: 100%;
+}
+
+/* Verso com conteúdo centralizado */
+.flip-card-back {
+  background-color: #fff;
+  border: 2px solid #9BE2FF;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  color: #333;
+  transform: rotateY(180deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 25px;
+  font-family: 'Hubballi', sans-serif;
+  font-size: 1.3rem;
+}
+
+/* -----------------Alimentação---------------------------*/
+.alimentacao {
+  margin: 0 auto;
+  align-items: center;
+  width: 50%;
+  margin: 6.25rem auto 60px auto;
+  padding: 0 20px;
+  font-family: 'Hubballi', sans-serif;
+  margin-bottom: 150px;
+}
+
+.alimentacao-titulo {
+  font-size: 3rem;
+  font-weight: 400;
+  color: #FF6585;
+  margin: 0;
+  text-align: left;
+}
+
+.alimentacao-descricao {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  color: #333;
+  margin-top: 5px;
+  margin-bottom: 30px;
+  max-width: 1000px;
+  text-align: left;
+}
+
+.alimentacao-lista {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 600px;
+  margin: 0 auto;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.alimentacao-item {
+  background-color: #ffffff;
+  padding: 14px 20px;
+  border-radius: 12px;
+  width: 600px;
+  border: 2px solid #ff849f;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  font-size: 1.8rem;
+}
+
+.alimentacao-item:hover {
+  background-color: #fff4f6;
+}
+
+.seta {
+  font-size: 1.5rem;
+  color: #555;
+}
+
+/* Novo estilo para o cardápio expandido */
+.cardapio {
+  display: none;
+  background-color: #fff4f6;
+  border: 2px solid #ff849f;
+  border-radius: 12px;
+  margin-top: -5px;
+  overflow: hidden;
+  padding: 10px 0;
+}
+
+.refeicao {
+  border-bottom: 2px solid #ff849f;
+  padding: 20px;
+}
+
+.refeicao:last-child {
+  border-bottom: none;
+}
+
+.refeicao-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.refeicao-header h3 {
+  font-size: 1.6rem;
+  font-weight: 400;
+  margin: 0;
+  color: #333;
+}
+
+.refeicao-header button {
+  background: none;
+  border: 2px solid #ff849f;
+  border-radius: 20px;
+  padding: 6px 14px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-family: 'Poppins', sans-serif;
+  color: #333;
+  transition: background 0.3s ease;
+}
+
+.refeicao-header button:hover {
+  background-color: #ff849f;
+  color: white;
+}
+
+.refeicao-itens {
+  margin-top: 10px;
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.refeicao-itens span {
+  font-size: 1.2rem;
+  color: #333;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* ------------------ Footer ------------------------ */
+.footer {
+  
+  padding: 40px 20px;
+  font-family: 'Hubballi', sans-serif;
+  border-radius: 50px;
+  width: 70%;
+  height: 80%;
+  margin: 0 auto;
+  font-family: 'Hubballi', sans-serif;
+  background-image: linear-gradient(#f4fbf4, #f4fbf4), 
+                    linear-gradient(90deg, #FFFFFF47 28%, #999999aa);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.212);
+  margin-bottom: 50px;
+  margin-top: 70px;
+  
+}
+
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 40px; /* margem para afastar das bordas */
+  margin-bottom: 30px;
+}
+
+.footer-top h2 {
+  font-size: 2.4rem;
+}
+
+.footer-buttons {
+  display: flex;
+  gap: 25px;
+  padding-right: 100px;
+}
+
+.footer-buttons button {
+  padding: 12px 30px;
+  border: 2px solid transparent;
+  border-radius: 20px;
+  background: none;
+  font-size: 1.6rem;
+  cursor: pointer;
+  font-family: 'Hubballi', sans-serif;
+  background-image: linear-gradient(#f4fbf4, #f4fbf4), 
+                    linear-gradient(90deg, #FFFFFF47 28%, #999999aa);
+                      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.212);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+}
+
+.footer-buttons button:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.footer-divider {
+  border: none;
+  border-top: 1px solid #ccc;
+  margin: 20px 0;
+}
+
+.footer-address {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 1.4rem;
+  margin-bottom: 50px;
+}
+
+.footer-address p{
+padding-top: 20px;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 30px;
+  font-size: 1.1rem;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+}
+
+.footer-links h4 {
+  margin-bottom: 15px;
+
+}
+
+.footer-links p {
+  margin: 4px 0;
+}
+
+.footer-social {
+  display: flex;
+  justify-content: center; /* Centraliza horizontalmente */
+  align-items: center;     /* Alinha verticalmente */
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.footer-social img {
+  width: 35px;
+  height: 35px;
+  display: block;
+}
+
+
+.footer-copy {
+  text-align: center;
+  font-size: 1.1rem;
+}
+
+/* Fundo escuro do modal */
+.modal-nutricional {
+  display: none; /* Inicialmente escondido */
+  position: fixed;
+  z-index: 2000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.7);
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+/* Conteúdo principal do modal */
+.modal-nutricional .modal-content {
+  background-color: #fff;
+  padding: 45px 45px;
+  border-radius: 12px;
+  border: 3px solid #ff6585;
+  max-width: 1000px;
+  width: 90%;
+  max-height: 95vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 0px 6px 20px rgba(0,0,0,0.2);
+}
+
+/* Botão X */
+.modal-nutricional .fechar {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 32px;
+  font-weight: bold;
+  color: #ff6585;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.modal-nutricional .fechar:hover {
+  color: #d94463;
+}
+
+/* Layout dos cards internos */
+.nutri-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 20px;
+}
+
+.nutri-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  background-color: #fff;
+  border: 2px solid #ff849f;
+  border-radius: 10px;
+  padding: 15px 20px;
+  box-shadow: 0px 2px 8px rgba(0,0,0,0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.nutri-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0px 4px 12px rgba(0,0,0,0.1);
+}
+
+/* Imagem do alimento */
+.nutri-img img {
+  width: 90px;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 2px solid #ff6585;
+}
+
+/* Texto ao lado da imagem */
+.nutri-info h4 {
+  font-size: 1.2rem;
+  color: #ff6585;
+  padding-bottom: 3px;
+  border-bottom: 2px solid #ff6585; /* Exemplo com a cor azul */
+  margin-bottom: 8px;
+}
+
+.nutri-info p {
+  margin: 3px 0;
+  font-size: 1.1rem;
+  color: #333;
+}
+
+
+
+/* ==========================================================================
+   Media Queries
+   ========================================================================== */
+
+@media (max-width: 1380px) {
+   .alimentacao {
+        margin-left: 200px;
+        text-align: center;
+    }
+  }
+/* --- 1080px --- */
+@media (max-width: 1080px) {
+    /* Seção Principal */
+    .content-wrapper {
+        flex-direction: column;
+        gap: 40px;
+        width: 90%;
+        padding: 30px;
+    }
+
+    .image-container {
+        width: 100%;
+        height: 400px;
+    }
+    
+    /* Seção Pedagógica */
+    .content-wrapper2 {
+        padding: 60px 20px;
+    }
+    
+    .pedagogical-header h2 {
+        font-size: 2.2rem;
+    }
+    
+    .pedagogical-cards-container {
+        gap: 30px;
+    }
+    
+    .pedagogical-card {
+        width: 250px;
+        height: auto;
+    }
+
+    /* Seção Matrícula */
+    .matricula-header {
+        margin-right: 0;
+        text-align: center;
+    }
+    
+    .matricula-cards-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 40px;
+    }
+    
+    .matricula-card {
+        width: 450px;
+    }
+    .alimentacao-item {
+        width: 100%;
+        font-size: 1.5rem;
+    }
+
+    /* Footer */
+    .footer {
+        width: 90%;
+        height: auto;
+    }
+    
+    .footer-top {
+        flex-direction: column;
+        text-align: center;
+        margin: 0;
+        gap: 20px;
+    }
+    
+    .footer-buttons {
+        padding-right: 0;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    
+    .footer-buttons button {
+        font-size: 1.4rem;
+    }
+}
+
+/* --- 780px --- */
+@media (max-width: 780px) {
+    /* Seção Principal */
+    .text-container {
+        margin-bottom: 20px;
+    }
+
+    .school-initials, .school-name, .school-name-highlight {
+        font-size: 40px;
+    }
+
+    .school-slogan {
+        font-size: 18px;
+    }
+    
+    .image-container {
+        height: 300px;
+    }
+
+    /* Seção Pedagógica */
+    .pedagogical-header {
+        text-align: center;
+    }
+
+    .pedagogical-cards-container {
+        gap: 20px;
+    }
+
+    .pedagogical-card {
+        width: 200px;
+    }
+
+    /* Seção Matrícula */
+    .matricula-header h2 {
+        font-size: 2rem;
+    }
+
+    .matricula-card {
+      width: 400px;
+    }
+
+    .matricula-card h3 {
+        font-size: 2.5rem;
+    }
+
+     /* Seção Alimentação */
+    .alimentacao {
+        margin-left: 90px;
+        text-align: center;
+    }
+
+    /* Seção Alimentação */
+    .alimentacao-titulo {
+        font-size: 2.5rem;
+    }
+    
+    .alimentacao-item {
+        font-size: 1.2rem;
+        padding: 10px;
+    }
+
+    /* Footer */
+    .footer-top h2 {
+        font-size: 2rem;
+    }
+    
+    .footer-links {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+    }
+}
+
+/* --- 480px --- */
+@media (max-width: 480px) {
+    /* Seção Principal */
+    .content-wrapper {
+        padding: 20px;
+    }
+
+    .school-initials, .school-name, .school-name-highlight {
+        font-size: 30px;
+    }
+
+    .school-slogan {
+        font-size: 16px;
+    }
+
+    .image-container {
+        height: 200px;
+    }
+
+    /* Seção Pedagógica */
+    .pedagogical-header h2 {
+        font-size: 1.8rem;
+    }
+
+    .pedagogical-cards-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .pedagogical-card {
+        width: 90%;
+        height: auto;
+    }
+
+    /* Seção Matrícula */
+    .matricula-header {
+        text-align: center;
+    }
+    
+    .matricula-header h2 {
+        font-size: 1.8rem;
+    }
+
+    .matricula-card {
+        width: 90%;
+    }
+    
+    .matricula-card h3 {
+        font-size: 2rem;
+    }
+    
+    .matricula-card button {
+        width: 100%;
+        font-size: 1rem;
+    }
+
+    /* Seção Alimentação */
+    .alimentacao {
+        margin-top: 50px;
+    }
+    
+    .alimentacao-titulo {
+        font-size: 2rem;
+    }
+    
+    .alimentacao-lista {
+        margin-top: 20px;
+    }
+    
+    .alimentacao-item {
+        font-size: 1rem;
+    }
+
+    /* Footer */
+    .footer {
+        width: 100%;
+        border-radius: 0;
+    }
+    
+    .footer-top h2 {
+        font-size: 1.5rem;
+    }
+    
+    .footer-buttons button {
+        font-size: 1.2rem;
+    }
+    
+    .footer-address {
+        font-size: 1.2rem;
+    }
+}
+@media (max-width: 1080px) {
+    .alimentacao {
+        padding: 0 10px;
+    }
+    
+    .alimentacao-titulo {
+        font-size: 2.5rem;
+    }
+
+    .alimentacao-descricao {
+        font-size: 0.95rem;
+    }
+    
+    .alimentacao-item {
+        font-size: 1.5rem;
+    }
+}
+
+/* --- 780px --- */
+@media (max-width: 780px) {
+    .alimentacao {
+        margin: 4rem auto 100px;
+    }
+    
+    .alimentacao-titulo {
+        font-size: 2rem;
+    }
+
+    .alimentacao-descricao {
+        font-size: 0.9rem;
+    }
+    
+    .alimentacao-lista {
+        gap: 12px;
+    }
+
+    .alimentacao-item {
+        padding: 12px 15px;
+        font-size: 1.2rem;
+    }
+}
+
+/* --- 480px --- */
+@media (max-width: 480px) {
+    .alimentacao {
+        margin: 3rem auto 80px;
+        padding: 0 5px;
+    }
+    
+    .alimentacao-titulo {
+        font-size: 1.5rem;
+    }
+
+    .alimentacao-descricao {
+        font-size: 0.8rem;
+        margin-bottom: 20px;
+    }
+    
+    .alimentacao-lista {
+        gap: 10px;
+    }
+    
+    .alimentacao-item {
+        padding: 10px 12px;
+        font-size: 1rem;
+    }
+    
+    .seta {
+        font-size: 1.2rem;
+    }
+}

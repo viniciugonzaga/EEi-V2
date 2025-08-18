@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/fotoprofessor.css">
+</head>
+<body>
+    <div class="container">
+      
+    
+    
+        <h1>Insera uma foto Sua</h1>
+    </br>
+        <div class="container1">
+            
+              <label for="image-upload10" class="image-label10">Insira</label>
+              <input type="file" id="image-upload10" accept="image/*" required>
+              <div class="image-preview10">
+                <img id="preview-img10" alt="Pré-visualização da imagem" />
+              </div>
+    
+    
+              
+          </div>
+    
+          <div class="button-container">
+            <button onclick="pronto()" class="anterior">Pronto</button>
+          </div> 
+
+
+          <script>
+            function pronto() {
+                alert('Registro confirmado com sucesso!' );
+                window.location.href = 'loginprofessor.html';
+              
+            }
+          </script>
+
+
+
+
+
+
+          <script>
+            document.getElementById('image-upload10').addEventListener('change', function(event) {
+              const file = event.target.files[0]; // Obtenha o arquivo selecionado pelo usuário
+              const reader = new FileReader(); // Crie um FileReader para ler o arquivo
+          
+              reader.onload = function(e) {
+                const previewImage = document.getElementById('preview-img10');
+                previewImage.src = e.target.result; // Defina a fonte da imagem como o conteúdo lido
+                previewImage.style.display = 'block'; // Mostre a imagem na página
+        
+                const container1 = document.querySelector('.container1');
+                container1.style.height = 'auto'; // Altere o valor conforme necessário
+              
+              };
+          
+              if (file) {
+                reader.readAsDataURL(file); // Leia o arquivo como uma URL de dados
+              }
+            });
+          </script>
+
+
+
+
+</body>
+</html>
