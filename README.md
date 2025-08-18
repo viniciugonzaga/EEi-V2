@@ -1,11 +1,4 @@
 
-
-<p align="center">
-<img src="Pasta da IBM/imagens/logo.png" alt="Logotipo" width="230vh" height="230vh">
-</p>
-</br>
-
-
 # EEI-Pequenos_Sonhos
 <p>A EEI Pequenos Sonhos é o site oficial de uma creche que abrange desde o Berçário até a Educação Infantil. Nosso objetivo é proporcionar uma experiência completa para pais e responsáveis, reunindo todas as informações essenciais sobre nossa escola. Desde uma página inicial introdutória até uma área exclusiva para o acompanhamento do desenvolvimento do seu filho, o site é projetado para facilitar o acesso a dados importantes, tornando-se uma extensão virtual da nossa creche. Além disso, nos dedicamos a promover o aprendizado e o desenvolvimento dos alunos em um ambiente seguro, acolhedor e interativo.</p>
 <hr>
