@@ -1,31 +1,56 @@
 body {
-    background: linear-gradient(180deg, #ecffecc0 34%);
+    background: linear-gradient(180deg, #eafdeac0 34%);
     margin-left: 0;
     margin-right: 0;
 }
+
+/* Importa as fontes Poppins e Hubballi para usar no projeto */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Hubballi&display=swap');
+
 
 
 /*css do Nav-bar----------------------------------------------------------------------------*/
 @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Open+Sans:wght@400;600&display=swap');
 
 
-/* Base Navigation Bar Styles */
+/* Container que fica fixo no topo da tela */
+.fixed-container {
+  position: fixed; /* Torna o container fixo */
+  top: 0;
+  left: 0;
+  width: 100%; /* Ocupa a largura total da tela */
+  z-index: 1000;
+  padding: 15px 0; /* Adiciona um padding vertical para espaçamento, se necessário */
+}
+
+/* Definição das cores da borda como variáveis CSS */
+:root {
+    --cor-borda-pedagogica: #4ac2f1; /* Azul Claro */
+    --cor-borda-matricula: #55e255; /* Verde Claro */
+    --cor-borda-alimentacao: #fd7589; /* Rosa Claro */
+}
+
+/* Estilos originais da barra de navegação, agora dentro do container fixo */
 nav {
+  /* Largura fixa e centralizada */
+  width: 1250px;
+  margin: 0 auto;
+  /* Estilos visuais */
   background-color: #ffffff;
   padding: 15px 30px;
   display: flex;
   align-items: center;
-  width: 1250px;
-  margin: 0 auto;
-  height: 120px; /* Sua altura atual */
-  z-index: 1000; /* Mantenha um z-index alto para a navbar */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.171);
-  border-radius: 30px;
-  border-bottom: 2.50px solid #ff4c97;
+  height: 120px;
+  border-radius: 30px; /* Bordas arredondadas */
+  border-bottom: 3px solid #ff4c97;
   gap: 50px;
-  margin-top: 20px;
- 
+  /* Remove as margens de topo e fundo, pois o container fixo já cuida disso */
+  margin-top: 0; 
+  margin-bottom: 0;
+  transition: border-bottom-color 0.5s ease-in-out; /* Transição de 0.5 segundos com efeito suave */
 }
+
+/* Adicione um padding no body para que o conteúdo não fique atrás da nav */
 
 /* Logo and School Name Container */
 .brand-logo {
@@ -191,11 +216,12 @@ nav {
   background-color: #ffffff;
   border-radius: 15px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  min-width: 150px;
+  min-width: 120px;
   opacity: 0;
   transform: translateY(10px);
   transition: opacity 0.3s ease, transform 0.3s ease;
   pointer-events: none;
+  z-index: 99; /* Adicione esta linha para garantir que o menu apareça na frente */
 }
 
 /* Display Login Dropdown on Hover */
@@ -213,7 +239,7 @@ nav {
   text-decoration: none;
   color: #000000;
   font-family: 'Open Sans', sans-serif;
-  font-size: 15px;
+  font-size: 12px;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
@@ -420,7 +446,7 @@ nav {
     height: 100vh; /* Ocupa a altura total da viewport */
     background-color: #ffffff; /* Fundo do menu quando aberto */
     transition: left 0.3s ease-in-out; /* Animação de slide */
-    padding-top: 80px; /* Espaço para não cobrir a navbar */
+    margin-top: 0;
     align-items: center; /* Centraliza itens */
     justify-content: flex-start; /* Alinha ao topo */
     z-index: 999; /* Abaixo da navbar fixa */
@@ -593,6 +619,41 @@ nav {
 
 /*Css da sessão 1 ----------------------------------------------------------------------------*/
 /* Adicione estas variáveis CSS no topo do seu arquivo style.css */
+
+main {
+    position: relative; /* Essencial para que a imagem com position: absolute se posicione corretamente em relação a ele */
+}
+
+/* Animação para a imagem */
+@keyframes aparecerESumir {
+    0% {
+        opacity: 0; /* Começa totalmente transparente */
+    }
+    10% {
+        opacity: 0.04; /* Atinge a opacidade desejada rapidamente */
+    }
+    90% {
+        opacity: 0.04; /* Mantém a opacidade */
+    }
+    100% {
+        opacity: 0; /* Volta a ser totalmente transparente para sumir */
+    }
+}
+
+/* Estilo para a imagem das patinhas (Atualizado) */
+.trilha-patinhas {
+    position: absolute;
+    z-index: -1;
+    pointer-events: none;
+    width: auto;
+    max-width: 600px;
+    
+    /* Configuração da animação */
+    animation-name: aparecerESumir; /* Nome da animação a ser usada */
+    animation-duration: 5s; /* Duração total da animação (5 segundos) */
+    animation-fill-mode: forwards; /* Mantém o estado final da animação (opacidade 0) */
+}
+
 :root {
   --nav-color-1: #783dbb;
   --nav-color-2: #5bc0de;
@@ -610,7 +671,7 @@ nav {
     display: flex;
     justify-content: center;
     padding: 20px;
-    margin-top: 10px;
+    margin-top: 150px;
 }
 
 .content-wrapper {
@@ -745,6 +806,7 @@ nav {
 /* ----------------------- SESSÃO PEDAGÓGICA ----------------------------- */
 .pedagogical-section {
   padding: 60px 20px;
+  margin-top: -100px;
 
 }
 
@@ -757,7 +819,8 @@ nav {
   border-radius: 30px;
   margin-bottom: -50px;
   margin-top: -50px;
-  padding: 90px;
+  padding: 40px;
+  padding-top: 60px;
  
 }
 
@@ -808,11 +871,9 @@ nav {
     border: 2px solid #9BE2FF;
     border-radius: 15px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.233);
-
     /* Novo formato mais quadrado */
     width: 300px;
     height: 180px;
-
     transition: transform 0.55s ease, box-shadow 0.25s ease, opacity 0.5s ease-out, transform 0.5s ease-out;
     opacity: 0; /* Inicialmente invisível */
     transform: translateY(50px); /* Inicialmente um pouco abaixo */
@@ -910,7 +971,7 @@ nav {
 .matricula-header {
   margin-bottom: 100px;
   text-align: left;
-  margin-right: 350px;
+  margin-right: 450px;
 }
 
 .matricula-header h2 {
@@ -921,7 +982,7 @@ nav {
 }
 
 .matricula-header .highlight {
-  color: #48FF7D;
+  color: #2bc055;
 }
 
 .matricula-header p {
@@ -1103,9 +1164,9 @@ text-align: center;
 .alimentacao {
   margin: 0 auto;
   align-items: center;
-  width: 50%;
-  margin: 6.25rem auto 60px auto;
-  padding: 0 20px;
+  width: 60%;
+  margin: 7.25rem auto 60px auto;
+  padding: 0 10px;
   font-family: 'Hubballi', sans-serif;
   margin-bottom: 150px;
 }

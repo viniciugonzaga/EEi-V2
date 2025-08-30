@@ -215,3 +215,110 @@ window.addEventListener('click', (e) => {
     e.target.style.display = 'none';
   }
 });
+
+// Espera o documento ser completamente carregado antes de executar o script
+document.addEventListener('DOMContentLoaded', () => {
+
+    // 1. Seleciona a barra de navegação
+    const navBar = document.querySelector('nav');
+
+    // 2. Seleciona todas as seções relevantes com classes específicas
+    const secoes = {
+        pedagogica: document.querySelector('.pedagogical-section'),
+        matricula: document.querySelector('.matricula-section'),
+        alimentacao: document.querySelector('.alimentacao')
+    };
+
+    // 3. Função para mudar a cor da borda da nav bar
+    function mudarCorBorda() {
+        // Pega a posição atual da rolagem do usuário
+        const scrollPosicao = window.scrollY;
+
+        // Itera sobre as seções para verificar qual está visível
+        for (const chave in secoes) {
+            if (secoes.hasOwnProperty(chave)) {
+                const secao = secoes[chave];
+                if (secao) {
+                    // Calcula o ponto de ativação para a mudança de cor (25% do início da seção)
+                    const pontoDeAtivacao = secao.offsetTop - (window.innerHeight * 0.25);
+
+                    // Verifica se o usuário chegou ou ultrapassou o ponto de ativação
+                    if (scrollPosicao >= pontoDeAtivacao) {
+                        let novaCor = '';
+                        switch (chave) {
+                            case 'pedagogica':
+                                // Define a cor da borda com base na variável CSS
+                                novaCor = 'var(--cor-borda-pedagogica)';
+                                break;
+                            case 'matricula':
+                                novaCor = 'var(--cor-borda-matricula)';
+                                break;
+                            case 'alimentacao':
+                                novaCor = 'var(--cor-borda-alimentacao)';
+                                break;
+                        }
+                        // Aplica a nova cor de borda à nav bar
+                        navBar.style.borderBottomColor = novaCor;
+                    }
+                }
+            }
+        }
+    }
+
+    // 4. Adiciona um "ouvinte" de evento de rolagem (scroll)
+    // A função 'mudarCorBorda' será chamada toda vez que o usuário rolar a página
+    window.addEventListener('scroll', mudarCorBorda);
+
+    // 5. Chama a função uma vez no início, para garantir que a cor seja definida corretamente ao carregar a página
+    mudarCorBorda();
+});
+
+// Espera o DOM carregar completamente
+document.addEventListener('DOMContentLoaded', () => {
+
+    // Seleciona o elemento main e a imagem da trilha
+    const main = document.querySelector('main');
+    const imagemPatinhas = document.querySelector('.trilha-patinhas');
+
+    // Verifica se os elementos existem antes de continuar
+    if (main && imagemPatinhas) {
+
+        // Função para posicionar a imagem aleatoriamente e reiniciar a animação
+        function animarPatinhas() {
+            // Obter as dimensões do container (main) e da imagem
+            const mainLargura = main.offsetWidth;
+            const mainAltura = main.offsetHeight;
+            
+            // Garantir que a imagem seja renderizada para obter suas dimensões corretas
+            // (Para o caso de estar com display: none inicialmente)
+            imagemPatinhas.style.display = 'block';
+            const imagemLargura = imagemPatinhas.offsetWidth;
+            const imagemAltura = imagemPatinhas.offsetHeight;
+
+            // Define uma margem para centralizar a aparição
+            const margemLargura = mainLargura * 0.2;
+            const margemAltura = mainAltura * 0.2;  
+            
+            // Calcula posições aleatórias dentro das margens centrais
+            const topAleatorio = Math.random() * (mainAltura - margemAltura * 2) + margemAltura;
+            const leftAleatorio = Math.random() * (mainLargura - margemLargura * 2) + margemLargura;
+
+            // Aplica as posições aleatórias à imagem
+            imagemPatinhas.style.top = `${topAleatorio}px`;
+            imagemPatinhas.style.left = `${leftAleatorio}px`;
+            
+            // Reinicia a animação da imagem
+            // Para isso, precisamos remover a classe e adicioná-la novamente
+            // Uma maneira mais robusta é clonar e substituir o elemento
+            imagemPatinhas.style.animation = 'none';
+            imagemPatinhas.offsetHeight; /* Força o navegador a redesenhar */
+            imagemPatinhas.style.animation = null; 
+        }
+        
+        // Posiciona e anima a imagem pela primeira vez ao carregar a página
+        animarPatinhas();
+
+        // Usa setInterval para chamar a função em loop a cada 6 segundos
+        setInterval(animarPatinhas, 6000);
+    }
+});
