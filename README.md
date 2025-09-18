@@ -1,7 +1,7 @@
 
 
 <p align="center">
-<img src="Pasta da IBM/imagens/logo.png" alt="Logotipo" width="230vh" height="230vh">
+<img src="/Public/logov3_sem_fundo.png" alt="Logotipo" width="230vh" height="230vh">
 </p>
 </br>
 
