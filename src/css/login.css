@@ -863,100 +863,36 @@ body.rotate-animation .login-container {
   opacity: 0.8;
   z-index: 2;
 }
+/* =========================
+   RESPONSIVIDADE LOGIN
+   ========================= */
 
-
-/* Responsividade */
-@media (max-width: 900px) {
-    .login-container {
-        flex-direction: column;
-        align-items: center;
-        gap: 20px;
-    }
-    .login-card.central, .login-card.lateral {
-        transform: scale(1);
-    }
-}
-
-/* ===============================
-   RESPONSIVIDADE
-   =============================== */
-
-/* Até 1080px */
+/* Até 1080px - notebooks menores */
 @media (max-width: 1080px) {
-  .login-container {
-    max-width: 1000px;
-    height: auto;
-    gap: 40px;
-  }
-
-  .login-card {
-    width: 350px;
-    min-height: 420px;
+  .login-section {
+    padding: 40px 15px;
   }
 
   .login-title {
     font-size: 1.6rem;
-    margin-bottom: 80px;
+    margin-bottom: 70px;
   }
 
   .login-title span {
-    font-size: 2rem;
+    font-size: 2.2rem;
   }
-}
 
-/* Até 900px */
-@media (max-width: 900px) {
   .login-container {
-    flex-direction: column;
-    align-items: center;
+    max-width: 1000px;
     height: auto;
-    gap: 25px;
+    gap: 40px;
+    flex-wrap: wrap;
+    justify-content: center;
   }
 
   .login-card {
-    position: relative;
-    transform: scale(1);
-    opacity: 1 !important;
-    width: 80%;
-    max-width: 400px;
-    min-height: 400px;
-  }
-
-  /* Zera os estados de central/esquerda/direita no mobile */
-  .login-card.central,
-  .login-card.left,
-  .login-card.right {
-    transform: scale(1);
-    rotate: none;
-    left: 0;
-    right: 0;
-    margin: auto;
-  }
-
-  .login-title {
-    font-size: 1.5rem;
-    margin-bottom: 60px;
-  }
-
-  .login-title span {
-    font-size: 1.9rem;
-  }
-}
-
-/* Até 720px */
-@media (max-width: 720px) {
-  main {
-    margin-top: 120px;
-  }
-
-  .login-section {
-    padding: 30px 15px;
-    margin-bottom: 60px;
-  }
-
-  .login-card {
-    width: 90%;
-    min-height: 380px;
+    width: 340px;
+    min-height: 420px;
     padding: 20px;
   }
 
@@ -968,22 +904,52 @@ body.rotate-animation .login-container {
     font-size: 1rem;
   }
 
-  .card-body input {
-    font-size: 0.9rem;
-    padding: 8px;
-  }
-
   .card-footer button {
     font-size: 1.2rem;
     padding: 8px 20px;
   }
 }
 
-/* Até 480px */
+/* Até 768px - tablets */
+@media (max-width: 768px) {
+  .login-title {
+    font-size: 1.4rem;
+    margin-bottom: 50px;
+  }
+
+  .login-title span {
+    font-size: 1.8rem;
+  }
+
+  .login-container {
+    flex-direction: column;
+    height: auto;
+    gap: 30px;
+  }
+
+  .login-card,
+  .login-card.central,
+  .login-card.left,
+  .login-card.right {
+    position: relative;
+    transform: none !important;
+    opacity: 1 !important;
+    z-index: 1 !important;
+    width: 100%;
+    max-width: 450px;
+    margin: auto;
+  }
+}
+
+/* Até 480px - celulares */
 @media (max-width: 480px) {
+  .login-section {
+    padding: 30px 10px;
+  }
+
   .login-title {
     font-size: 1.2rem;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
   }
 
   .login-title span {
@@ -993,16 +959,14 @@ body.rotate-animation .login-container {
 
   .login-card {
     width: 100%;
-    min-height: 350px;
+    max-width: 350px;
+    min-height: auto;
     padding: 15px;
+    border-radius: 15px;
   }
 
   .card-header h3 {
-    font-size: 1.3rem;
-  }
-
-  .card-body {
-    gap: 8px;
+    font-size: 1.2rem;
   }
 
   .card-body label {
@@ -1011,35 +975,16 @@ body.rotate-animation .login-container {
 
   .card-body input {
     font-size: 0.85rem;
-    padding: 6px;
+    padding: 8px;
   }
 
   .card-footer button {
     font-size: 1rem;
-    padding: 6px 16px;
+    padding: 8px 18px;
   }
 }
-/* Até 1024px (tablets/notebooks menores) */
-@media (max-width: 1024px) {
-  .login-container {
-    max-width: 900px;
-    gap: 30px;
-  }
 
-  .login-card {
-    width: 320px;
-    min-height: 400px;
-  }
 
-  .login-title {
-    font-size: 1.4rem;
-    margin-bottom: 70px;
-  }
-
-  .login-title span {
-    font-size: 1.8rem;
-  }
-}
 
 
 

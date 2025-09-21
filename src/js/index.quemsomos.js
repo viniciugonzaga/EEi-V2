@@ -184,3 +184,102 @@ items.forEach(item => {
 
 // inicia
 updateCarousel();
+
+// Espera o documento ser completamente carregado antes de executar o script
+document.addEventListener('DOMContentLoaded', () => {
+    // 1. Seleciona a barra de navegação
+    const navBar = document.querySelector('nav');
+
+    // 2. Seleciona todas as seções relevantes com classes específicas
+    const secoes = {
+        pedagogica: document.querySelector('.pedagogical-section'),
+        matricula: document.querySelector('.matricula-section'),
+        atividades: document.querySelector('.atividades-section')
+    };
+
+    // 3. Função para mudar a cor da borda da nav bar
+    function mudarCorBorda() {
+        const scrollPosicao = window.scrollY;
+
+        for (const chave in secoes) {
+            if (secoes.hasOwnProperty(chave)) {
+                const secao = secoes[chave];
+                if (secao) {
+                    const pontoDeAtivacao = secao.offsetTop - (window.innerHeight * 0.25);
+
+                    if (scrollPosicao >= pontoDeAtivacao) {
+                        let novaCor = '';
+                        switch (chave) {
+                            case 'pedagogica':
+                                novaCor = 'var(--cor-borda-pedagogica)';
+                                break;
+                            case 'matricula':
+                                novaCor = 'var(--cor-borda-matricula)';
+                                break;
+                            case 'atividades':
+                                novaCor = 'var(--cor-borda-alimentacao)';
+                                break;
+                        }
+                        navBar.style.borderBottomColor = novaCor;
+                    }
+                }
+            }
+        }
+    }
+
+    // 4. Escuta o scroll
+    window.addEventListener('scroll', mudarCorBorda);
+
+    // 5. Executa logo de início
+    mudarCorBorda();
+});
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    // 1. Seleciona a navbar
+    const navBar = document.querySelector('nav');
+
+    // 2. Seleciona as seções dessa tela
+    const secoes = {
+        pedagogica: document.querySelector('.pedagogical-section'),
+        matricula: document.querySelector('.matricula-section'),
+        ambientes: document.querySelector('.carousel-section')
+    };
+
+    // 3. Função para mudar a cor da borda da navbar
+    function mudarCorBorda() {
+        const scrollPosicao = window.scrollY;
+
+        for (const chave in secoes) {
+            if (secoes.hasOwnProperty(chave)) {
+                const secao = secoes[chave];
+                if (secao) {
+                    const pontoDeAtivacao = secao.offsetTop - (window.innerHeight * 0.25);
+
+                    if (scrollPosicao >= pontoDeAtivacao) {
+                        let novaCor = '';
+                        switch (chave) {
+                            case 'pedagogica':
+                                novaCor = 'var(--cor-borda-pedagogica)';
+                                break;
+                            case 'matricula':
+                                novaCor = 'var(--cor-borda-matricula)';
+                                break;
+                            case 'ambientes':
+                                novaCor = 'var(--cor-borda-alimentacao)';
+                                break;
+                        }
+                        navBar.style.borderBottomColor = novaCor;
+                    }
+                }
+            }
+        }
+    }
+
+    // 4. Escuta a rolagem
+    window.addEventListener('scroll', mudarCorBorda);
+
+    // 5. Executa ao carregar
+    mudarCorBorda();
+});
+
