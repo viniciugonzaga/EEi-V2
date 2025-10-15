@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastro de Cardápio</title>
+    <link rel="icon" href="/images/logov3_sem_fundo.png" type="image/x-icon">
+    <link rel="stylesheet" href="/EEi-V2-main/EEi-V2-main/src/css/cardapio.css">
+</head>
+<body>
+    <h1>Cadastro de Cardápio</h1>
+
+    <div class="pdf-container">
+        <a href="/documentos/cardapio_escolar.pdf" download="cardapio_escolar.pdf" class="btn-pdf">
+            <i class="fas fa-file-pdf"></i> Baixar Lista de Refeições
+        </a>
+    </div>
+
+    <form id="menu-form" class="menu-form">
+        
+        <h2>Segunda-feira</h2>
+        <div class="refeicao">
+            <h3>Café da Manhã</h3>
+            <div class="opcoes">
+                <label>Opção 1:</label>
+                <input type="text" name="segunda-manha-op1" placeholder="Nome do alimento" required>
+                <input type="text" name="segunda-manha-foto1" placeholder="Nome da foto (ex: frango.png)" required>
+                <textarea name="segunda-manha-nutri1" placeholder="Informações nutricionais" required></textarea>
+            </div>
+            <div class="opcoes">
+                <label>Opção 2:</label>
+                <input type="text" name="segunda-manha-op2" placeholder="Nome do alimento" >
+                <input type="text" name="segunda-manha-foto2" placeholder="Nome da foto (ex: frango.png)">
+                <textarea name="segunda-manha-nutri2" placeholder="Informações nutricionais" ></textarea>
+            </div>
+            <div class="opcoes">
+                <label>Opção 3:</label>
+                <input type="text" name="segunda-manha-op3" placeholder="Nome do alimento" required>
+                <input type="text" name="segunda-manha-foto3" placeholder="Nome da foto (ex: frango.png)">
+                <textarea name="segunda-manha-nutri3" placeholder="Informações nutricionais" required></textarea>
+            </div>
+            <div class="opcoes">
+                <label>Opção 4:</label>
+                <input type="text" name="segunda-manha-op4"placeholder="Nome do alimento" >
+                <input type="text" name="segunda-manha-foto4" placeholder="Nome da foto (ex: frango.png)" >
+                <textarea name="segunda-manha-nutri4" placeholder="Informações nutricionais"></textarea>
+            </div>
+        </div>
+
+        <div class="refeicao">
+            <h3>Almoço</h3>
+            <div class="opcoes">
+                <label>Opção 1:</label>
+                <input type="text" name="segunda-almoco-op1"placeholder="Nome do alimento">
+                <input type="text" name="segunda-almoco-foto1" placeholder="Nome da foto (ex: frango.png)" >
+                <textarea name="segunda-almoco-nutri1" placeholder="Informações nutricionais" ></textarea>
+            </div>
+            <div class="opcoes">
+                <label>Opção 2:</label>
+                <input type="text" name="segunda-almoco-op2"placeholder="Nome do alimento" >
+                <input type="text" name="segunda-almoco-foto2" placeholder="Nome da foto (ex: frango.png)">
+                <textarea name="segunda-almoco-nutri2"placeholder="Informações nutricionais" ></textarea>
+            </div>
+            <div class="opcoes">
+                <label>Opção 3:</label>
+                <input type="text" name="segunda-almoco-op3"placeholder="Nome do alimento">
+                <input type="text" name="segunda-almoco-foto3" placeholder="Nome da foto (ex: frango.png)">
+                <textarea name="segunda-almoco-nutri3"placeholder="Informações nutricionais" ></textarea>
+            </div>
+            <div class="opcoes">
+                <label>Opção 4:</label>
+                <input type="text" name="segunda-almoco-op4"placeholder="Nome do alimento" >
+                <input type="text" name="segunda-almoco-foto4" placeholder="Nome da foto (ex: frango.png)" >
+                <textarea name="segunda-almoco-nutri4" placeholder="Informações nutricionais" ></textarea>
+            </div>
+        </div>
+
+        <div class="refeicao">
+            <h3>Lanche da Tarde</h3>
+            <div class="opcoes">
+                <label>Opção 1:</label>
+                <input type="text" name="segunda-tarde-op1"placeholder="Nome do alimento" >
+                <input type="text" name="segunda-tarde-foto1" placeholder="Nome da foto (ex: frango.png)">
+                <textarea name="segunda-tarde-nutri1" placeholder="Informações nutricionais"></textarea>
+            </div>
+            <div class="opcoes">
+                <label>Opção 2:</label>
+                <input type="text" name="segunda-tarde-op2"placeholder="Nome do alimento" >
+                <input type="text" name="segunda-tarde-foto2" placeholder="Nome da foto (ex: frango.png)">
+                <textarea name="segunda-tarde-nutri2" placeholder="Informações nutricionais"></textarea>
+            </div>
+            <div class="opcoes">
+                <label>Opção 3:</label>
+                <input type="text" name="segunda-tarde-op3"placeholder="Nome do alimento" >
+                <input type="text" name="segunda-tarde-foto3" placeholder="Nome da foto (ex: frango.png)">
+                <textarea name="segunda-tarde-nutri3" placeholder="Informações nutricionais"></textarea>
+            </div>
+            <div class="opcoes">
+                <label>Opção 4:</label>
+                <input type="text" name="segunda-tarde-op4"placeholder="Nome do alimento" >
+                <input type="text" name="segunda-tarde-foto4" placeholder="Nome da foto (ex: frango.png)">
+                <textarea name="segunda-tarde-nutri4"placeholder="Informações nutricionais" ></textarea>
+            </div>
+        </div>
+
+        <h2>Terça-feira</h2>
+        <div class="refeicao">
+            <h3>Café da Manhã</h3>
+            <div class="opcoes">
+                <label>Opção 1:</label>
+                <input type="text" name="terca-manha-op1" placeholder="Nome do alimento">
+                <input type="text" name="terca-manha-foto1" placeholder="Nome da foto (ex: frango.png)">
+                <textarea name="terca-manha-nutri1" placeholder="Informações nutricionais"></textarea>
+            </div>
+            <div class="opcoes">
+                <label>Opção 2:</label>
+                <input type="text" name="terca-manha-op2"placeholder="Nome do alimento" >
+                <input type="text" name="terca-manha-foto2" placeholder="Nome da foto (ex: frango.png)">
+                <textarea name="terca-manha-nutri2"></textarea>
+            </div>
+            <div class="opcoes">
+                <label>Opção 3:</label>
+                <input type="text" name="terca-manha-op3"placeholder="Nome do alimento" >
+                <input type="text" name="terca-manha-foto3" placeholder="Nome da foto (ex: frango.png)">
+                <textarea name="terca-manha-nutri3"></textarea>
+            </div>
+            <div class="opcoes">
+                <label>Opção 4:</label>
+                <input type="text" name="terca-manha-op4"placeholder="Nome do alimento" required>
+                <input type="text" name="terca-manha-foto4" placeholder="Nome da foto (ex: frango.png)">
+                <textarea name="terca-manha-nutri4"></textarea>
+            </div>
+        </div>
+
+        <div class="refeicao">
+            <h3>Almoço</h3>
+            <div class="opcoes">
+                <label>Opção 1:</label>
+                <input type="text" name="terca-almoco-op1"placeholder="Nome do alimento" required>
+                <input type="text" name="terca-almoco-foto1" placeholder="Nome da foto (ex: frango.png)">
+                <textarea name="terca-almoco-nutri1"></textarea>
+            </div>
+            <div class="opcoes">
+                <label>Opção 2:</label>
+                <input type="text" name="terca-almoco-op2"placeholder="Nome do alimento" required>
+                <input type="text" name="terca-almoco-foto2" placeholder="Nome da foto (ex: frango.png)">
+                <textarea name="terca-almoco-nutri2"></textarea>
+            </div>
+            <div class="opcoes">
+                <label>Opção 3:</label>
+                <input type="text" name="terca-almoco-op3"placeholder="Nome do alimento" required>
+                <input type="text" name="terca-almoco-foto3" placeholder="Nome da foto (ex: frango.png)">
+                <textarea name="terca-almoco-nutri3"></textarea>
+            </div>
+            <div class="opcoes">
+                <label>Opção 4:</label>
+                <input type="text" name="terca-almoco-op4"placeholder="Nome do alimento" required>
+                <input type="text" name="terca-almoco-foto4" placeholder="Nome da foto (ex: frango.png)">
+                <textarea name="terca-almoco-nutri4"></textarea>
+            </div>
+        </div>
+
+        <div class="refeicao">
+            <h3>Lanche da Tarde</h3>
+            <div class="opcoes">
+                <label>Opção 1:</label>
+                <input type="text" name="terca-tarde-op1"placeholder="Nome do alimento" required>
+                <input type="text" name="terca-tarde-foto1" placeholder="Nome da foto (ex: frango.png)">
+                <textarea name="terca-tarde-nutri1"></textarea>
+            </div>
+            <div class="opcoes">
+                <label>Opção 2:</label>
+                <input type="text" name="terca-tarde-op2"placeholder="Nome do alimento" required>
+                <input type="text" name="terca-tarde-foto2" placeholder="Nome da foto (ex: frango.png)">
+                <textarea name="terca-tarde-nutri2"></textarea>
+            </div>
+            <div class="opcoes">
+                <label>Opção 3:</label>
+                <input type="text" name="terca-tarde-op3"placeholder="Nome do alimento" required>
+                <input type="text" name="terca-tarde-foto3" placeholder="Nome da foto (ex: frango.png)">
+                <textarea name="terca-tarde-nutri3"></textarea>
+            </div>
+            <div class="opcoes">
+                <label>Opção 4:</label>
+                <input type="text" name="terca-tarde-op4"placeholder="Nome do alimento" required>
+                <input type="text" name="terca-tarde-foto4" placeholder="Nome da foto (ex: frango.png)">
+                <textarea name="terca-tarde-nutri4"></textarea>
+            </div>
+        </div>
+
+        <h2>Quarta-feira</h2>
+        <div class="refeicao">
+            <h3>Café da Manhã</h3>
+            <div class="opcoes">
+                <label>Opção 1:</label>
+                <input type="text" name="quarta-manha-op1" placeholder="Nome do alimento">
+                <input type="text" name="quarta-manha-foto1" placeholder="Nome da foto (ex: frango.png)">
+                <textarea name="quarta-manha-nutri1" placeholder="Informações nutricionais"></textarea>
+            </div>
+            <div class="opcoes">
+                <label>Opção 2:</label>
+                <input type="text" name="quarta-manha-op2"placeholder="Nome do alimento" required>
+                <input type="text" name="quarta-manha-foto2" placeholder="Nome da foto (ex: frango.png)">
+                <textarea name="quarta-manha-nutri2"></textarea>
+            </div>
+            <div class="opcoes">
+                <label>Opção 3:</label>
+                <input type="text" name="quarta-manha-op3"placeholder="Nome do alimento" required>
+                <input type="text" name="quarta-manha-foto3" placeholder="Nome da foto (ex: frango.png)">
+                <textarea name="quarta-manha-nutri3"></textarea>
+            </div>
+            <div class="opcoes">
+                <label>Opção 4:</label>
+                <input type="text" name="quarta-manha-op4"placeholder="Nome do alimento" required>
+                <input type="text" name="quarta-manha-foto4" placeholder="Nome da foto (ex: frango.png)">
+                <textarea name="quarta-manha-nutri4"></textarea>
+            </div>
+        </div>
+
+        <div class="refeicao">
+            <h3>Almoço</h3>
+            <div class="opcoes">
+                <label>Opção 1:</label>
+                <input type="text" name="quarta-almoco-op1"placeholder="Nome do alimento" required>
+                <input type="text" name="quarta-almoco-foto1" placeholder="Nome da foto (ex: frango.png)">
+                <textarea name="quarta-almoco-nutri1"></textarea>
+            </div>
+            <div class="opcoes">
+                <label>Opção 2:</label>
+                <input type="text" name="quarta-almoco-op2"placeholder="Nome do alimento" required>
+                <input type="text" name="quarta-almoco-foto2" placeholder="Nome da foto (ex: frango.png)">
+                <textarea name="quarta-almoco-nutri2"></textarea>
+            </div>
+            <div class="opcoes">
+                <label>Opção 3:</label>
+                <input type="text" name="quarta-almoco-op3"placeholder="Nome do alimento" required>
+                <input type="text" name="quarta-almoco-foto3" placeholder="Nome da foto (ex: frango.png)">
+                <textarea name="quarta-almoco-nutri3"></textarea>
+            </div>
+            <div class="opcoes">
+                <label>Opção 4:</label>
+                <input type="text" name="quarta-almoco-op4"placeholder="Nome do alimento" required>
+                <input type="text" name="quarta-almoco-foto4" placeholder="Nome da foto (ex: frango.png)">
+                <textarea name="quarta-almoco-nutri4"></textarea>
+            </div>
+        </div>
+
+        <div class="refeicao">
+            <h3>Lanche da Tarde</h3>
+            <div class="opcoes">
+                <label>Opção 1:</label>
+                <input type="text" name="quarta-tarde-op1"placeholder="Nome do alimento" required>
+                <input type="text" name="quarta-tarde-foto1" placeholder="Nome da foto (ex: frango.png)">
+                <textarea name="quarta-tarde-nutri1"></textarea>
+            </div>
+            <div class="opcoes">
+                <label>Opção 2:</label>
+                <input type="text" name="quarta-tarde-op2"placeholder="Nome do alimento" required>
+                <input type="text" name="quarta-tarde-foto2" placeholder="Nome da foto (ex: frango.png)">
+                <textarea name="quarta-tarde-nutri2"></textarea>
+            </div>
+            <div class="opcoes">
+                <label>Opção 3:</label>
+                <input type="text" name="quarta-tarde-op3"placeholder="Nome do alimento" required>
+                <input type="text" name="quarta-tarde-foto3" placeholder="Nome da foto (ex: frango.png)">
+                <textarea name="quarta-tarde-nutri3"></textarea>
+            </div>
+            <div class="opcoes">
+                <label>Opção 4:</label>
+                <input type="text" name="quarta-tarde-op4"placeholder="Nome do alimento" required>
+                <input type="text" name="quarta-tarde-foto4" placeholder="Nome da foto (ex: frango.png)">
+                <textarea name="quarta-tarde-nutri4"></textarea>
+            </div>
+        </div>
+
+        <h2>Quinta-feira</h2>
+        <div class="refeicao">
+            <h3>Café da Manhã</h3>
+            <div class="opcoes">
+                <label>Opção 1:</label>
+                <input type="text" name="quinta-manha-op1" placeholder="Nome do alimento">
+                <input type="text" name="quinta-manha-foto1" placeholder="Nome da foto (ex: frango.png)">
+                <textarea name="quinta-manha-nutri1" placeholder="Informações nutricionais"></textarea>
+            </div>
+            <div class="opcoes">
+                <label>Opção 2:</label>
+                <input type="text" name="quinta-manha-op2"placeholder="Nome do alimento" required>
+                <input type="text" name="quinta-manha-foto2" placeholder="Nome da foto (ex: frango.png)">
+                <textarea name="quinta-manha-nutri2"></textarea>
+            </div>
+            <div class="opcoes">
+                <label>Opção 3:</label>
+                <input type="text" name="quinta-manha-op3"placeholder="Nome do alimento" required>
+                <input type="text" name="quinta-manha-foto3" placeholder="Nome da foto (ex: frango.png)">
+                <textarea name="quinta-manha-nutri3"></textarea>
+            </div>
+            <div class="opcoes">
+                <label>Opção 4:</label>
+                <input type="text" name="quinta-manha-op4"placeholder="Nome do alimento" required>
+                <input type="text" name="quinta-manha-foto4" placeholder="Nome da foto (ex: frango.png)">
+                <textarea name="quinta-manha-nutri4"></textarea>
+            </div>
+        </div>
+
+        <div class="refeicao">
+            <h3>Almoço</h3>
+            <div class="opcoes">
+                <label>Opção 1:</label>
+                <input type="text" name="quinta-almoco-op1"placeholder="Nome do alimento" required>
+                <input type="text" name="quinta-almoco-foto1" placeholder="Nome da foto (ex: frango.png)">
+                <textarea name="quinta-almoco-nutri1"></textarea>
+            </div>
+            <div class="opcoes">
+                <label>Opção 2:</label>
+                <input type="text" name="quinta-almoco-op2"placeholder="Nome do alimento" required>
+                <input type="text" name="quinta-almoco-foto2" placeholder="Nome da foto (ex: frango.png)">
+                <textarea name="quinta-almoco-nutri2"></textarea>
+            </div>
+            <div class="opcoes">
+                <label>Opção 3:</label>
+                <input type="text" name="quinta-almoco-op3"placeholder="Nome do alimento" required>
+                <input type="text" name="quinta-almoco-foto3" placeholder="Nome da foto (ex: frango.png)">
+                <textarea name="quinta-almoco-nutri3"></textarea>
+            </div>
+            <div class="opcoes">
+                <label>Opção 4:</label>
+                <input type="text" name="quinta-almoco-op4"placeholder="Nome do alimento" required>
+                <input type="text" name="quinta-almoco-foto4" placeholder="Nome da foto (ex: frango.png)">
+                <textarea name="quinta-almoco-nutri4"></textarea>
+            </div>
+        </div>
+
+        <div class="refeicao">
+            <h3>Lanche da Tarde</h3>
+            <div class="opcoes">
+                <label>Opção 1:</label>
+                <input type="text" name="quinta-tarde-op1"placeholder="Nome do alimento" required>
+                <input type="text" name="quinta-tarde-foto1" placeholder="Nome da foto (ex: frango.png)">
+                <textarea name="quinta-tarde-nutri1"></textarea>
+            </div>
+            <div class="opcoes">
+                <label>Opção 2:</label>
+                <input type="text" name="quinta-tarde-op2"placeholder="Nome do alimento" required>
+                <input type="text" name="quinta-tarde-foto2" placeholder="Nome da foto (ex: frango.png)">
+                <textarea name="quinta-tarde-nutri2"></textarea>
+            </div>
+            <div class="opcoes">
+                <label>Opção 3:</label>
+                <input type="text" name="quinta-tarde-op3"placeholder="Nome do alimento" required>
+                <input type="text" name="quinta-tarde-foto3" placeholder="Nome da foto (ex: frango.png)">
+                <textarea name="quinta-tarde-nutri3"></textarea>
+            </div>
+            <div class="opcoes">
+                <label>Opção 4:</label>
+                <input type="text" name="quinta-tarde-op4"placeholder="Nome do alimento" required>
+                <input type="text" name="quinta-tarde-foto4" placeholder="Nome da foto (ex: frango.png)">
+                <textarea name="quinta-tarde-nutri4"></textarea>
+            </div>
+        </div>
+
+        <h2>Sexta-feira</h2>
+        <div class="refeicao">
+            <h3>Café da Manhã</h3>
+            <div class="opcoes">
+                <label>Opção 1:</label>
+                <input type="text" name="sexta-manha-op1" placeholder="Nome do alimento">
+                <input type="text" name="sexta-manha-foto1" placeholder="Nome da foto (ex: frango.png)">
+                <textarea name="sexta-manha-nutri1" placeholder="Informações nutricionais"></textarea>
+            </div>
+            <div class="opcoes">
+                <label>Opção 2:</label>
+                <input type="text" name="sexta-manha-op2"placeholder="Nome do alimento" required>
+                <input type="text" name="sexta-manha-foto2" placeholder="Nome da foto (ex: frango.png)">
+                <textarea name="sexta-manha-nutri2"></textarea>
+            </div>
+            <div class="opcoes">
+                <label>Opção 3:</label>
+                <input type="text" name="sexta-manha-op3"placeholder="Nome do alimento" required>
+                <input type="text" name="sexta-manha-foto3" placeholder="Nome da foto (ex: frango.png)">
+                <textarea name="sexta-manha-nutri3"></textarea>
+            </div>
+            <div class="opcoes">
+                <label>Opção 4:</label>
+                <input type="text" name="sexta-manha-op4"placeholder="Nome do alimento" required>
+                <input type="text" name="sexta-manha-foto4" placeholder="Nome da foto (ex: frango.png)">
+                <textarea name="sexta-manha-nutri4"></textarea>
+            </div>
+        </div>
+
+        <div class="refeicao">
+            <h3>Almoço</h3>
+            <div class="opcoes">
+                <label>Opção 1:</label>
+                <input type="text" name="sexta-almoco-op1"placeholder="Nome do alimento" required>
+                <input type="text" name="sexta-almoco-foto1" placeholder="Nome da foto (ex: frango.png)">
+                <textarea name="sexta-almoco-nutri1"></textarea>
+            </div>
+            <div class="opcoes">
+                <label>Opção 2:</label>
+                <input type="text" name="sexta-almoco-op2"placeholder="Nome do alimento" required>
+                <input type="text" name="sexta-almoco-foto2" placeholder="Nome da foto (ex: frango.png)">
+                <textarea name="sexta-almoco-nutri2"></textarea>
+            </div>
+            <div class="opcoes">
+                <label>Opção 3:</label>
+                <input type="text" name="sexta-almoco-op3"placeholder="Nome do alimento" required>
+                <input type="text" name="sexta-almoco-foto3" placeholder="Nome da foto (ex: frango.png)">
+                <textarea name="sexta-almoco-nutri3"></textarea>
+            </div>
+            <div class="opcoes">
+                <label>Opção 4:</label>
+                <input type="text" name="sexta-almoco-op4"placeholder="Nome do alimento" required>
+                <input type="text" name="sexta-almoco-foto4" placeholder="Nome da foto (ex: frango.png)">
+                <textarea name="sexta-almoco-nutri4"></textarea>
+            </div>
+        </div>
+
+        <div class="refeicao">
+            <h3>Lanche da Tarde</h3>
+            <div class="opcoes">
+                <label>Opção 1:</label>
+                <input type="text" name="sexta-tarde-op1"placeholder="Nome do alimento" required>
+                <input type="text" name="sexta-tarde-foto1" placeholder="Nome da foto (ex: frango.png)">
+                <textarea name="sexta-tarde-nutri1"></textarea>
+            </div>
+            <div class="opcoes">
+                <label>Opção 2:</label>
+                <input type="text" name="sexta-tarde-op2"placeholder="Nome do alimento" required>
+                <input type="text" name="sexta-tarde-foto2" placeholder="Nome da foto (ex: frango.png)">
+                <textarea name="sexta-tarde-nutri2"></textarea>
+            </div>
+            <div class="opcoes">
+                <label>Opção 3:</label>
+                <input type="text" name="sexta-tarde-op3"placeholder="Nome do alimento" required>
+                <input type="text" name="sexta-tarde-foto3" placeholder="Nome da foto (ex: frango.png)">
+                <textarea name="sexta-tarde-nutri3"></textarea>
+            </div>
+            <div class="opcoes">
+                <label>Opção 4:</label>
+                <input type="text" name="sexta-tarde-op4"placeholder="Nome do alimento" required>
+                <input type="text" name="sexta-tarde-foto4" placeholder="Nome da foto (ex: frango.png)">
+                <textarea name="sexta-tarde-nutri4"></textarea>
+            </div>
+        </div>
+
+        <button type="submit">Salvar Cardápio</button>
+    </form>
+
+    <script src="/EEi-V2-main/EEi-V2-main/src/js/cardápio.js"></script>
+    </body>
+</html>

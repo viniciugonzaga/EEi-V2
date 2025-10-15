@@ -1,0 +1,344 @@
+/* -----------------Alimentação---------------------------*/
+.alimentacao {
+    margin: 0 auto;
+    align-items: center;
+    width: 60%;
+    margin: 7.25rem auto 60px auto;
+    padding: 0 10px;
+    font-family: 'Hubballi', sans-serif;
+    margin-bottom: 150px;
+}
+
+.alimentacao-header {
+    text-align: left;
+    margin-bottom: 30px;
+}
+
+.alimentacao-titulo {
+    font-size: 3rem;
+    font-weight: 400;
+    color: #FF6585;
+    margin: 0;
+    text-align: left;
+}
+
+.alimentacao-descricao {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    color: #333;
+    margin-top: 5px;
+    max-width: 1000px;
+    text-align: left;
+}
+
+.alimentacao-lista {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    max-width: 600px;
+    margin: 0 auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.alimentacao-item {
+    background-color: #ffffff;
+    padding: 14px 20px;
+    border-radius: 12px;
+    width: 600px;
+    border: 2px solid #ff849f;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    font-size: 1.8rem;
+}
+
+.alimentacao-item:hover {
+    background-color: #fff4f6;
+}
+
+.seta {
+    font-size: 1.5rem;
+    color: #555;
+    transition: transform 0.3s ease;
+}
+
+/* Fundo escuro do modal */
+.modal-nutricional {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Conteúdo principal do modal */
+.modal-nutricional .modal-content {
+    background-color: #fff;
+    padding: 45px;
+    border-radius: 12px;
+    border: 3px solid #ff6585;
+    max-width: 1000px;
+    width: 90%;
+    max-height: 95vh;
+    overflow-y: auto;
+    position: relative;
+    box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+.modal-nutricional .fechar {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 32px;
+    font-weight: bold;
+    color: #ff6585;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.modal-nutricional .fechar:hover {
+    color: #d94463;
+}
+
+.modal-nutricional h2 {
+    font-size: 2.5rem;
+    font-weight: 400;
+    color: #FF6585;
+    margin-top: 0;
+    margin-bottom: 25px;
+}
+
+/* Layout do primeiro modal (cards de refeição) */
+.modal-refeicoes-dia .modal-content {
+    padding: 30px;
+    max-width: 800px;
+}
+
+.modal-refeicoes-dia h2 {
+    text-align: center;
+    font-family: 'Hubballi', sans-serif;
+    font-weight: 500;
+    color: #333;
+}
+
+.refeicao-card-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    padding: 20px;
+}
+
+.refeicao-card {
+    background-color: #fcebeb;
+    padding: 25px 40px;
+    border-radius: 10px;
+    border: 2px solid #ff849f;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    flex: 1 1 200px;
+    min-height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.refeicao-card h3 {
+    font-size: 1.4rem;
+    font-weight: 500;
+    margin: 0;
+    color: #FF6585;
+}
+
+/* Efeito de brilho */
+.refeicao-card:hover::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.3);
+    transition: transform 0.5s ease-in-out;
+    transform: skewX(-20deg);
+}
+
+.refeicao-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(255, 101, 133, 0.2);
+}
+
+/* Animação do sublinhado */
+.refeicao-card::after {
+    content: '';
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    width: 0;
+    height: 3px;
+    background-color: #ff6585;
+    transition: width 0.3s ease, left 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.refeicao-card:hover::after {
+    width: 80%;
+}
+
+/* Layout do segundo modal (detalhes do alimento) */
+.modal-nutricional.modal-nutri-detalhe .modal-content {
+    width: 80%; /* Aumenta a largura para 90% da tela */
+    max-width: 800px; /* Define uma largura máxima para não ficar muito grande em telas grandes */
+    padding: 20px;
+    border-radius: 10px;
+    /* Outras propriedades existentes */
+}
+
+.nutri-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 0;
+    width: 100%;
+    height: 550px;
+    overflow: hidden;
+    position: relative;
+    border: 2px solid #ff6585;
+}
+
+.nutri-grid::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 100%;
+    background-color: #ff6585;
+    z-index: 1;
+}
+
+.nutri-grid::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    width: 100%;
+    height: 2px;
+    background-color: #ff6585;
+    z-index: 1;
+}
+
+.nutri-info-card {
+    background-color: #fcf6f9;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: none;
+    height: 100%;
+    justify-content: flex-start;
+    overflow-y: auto;
+    padding-top: 50px;
+    position: relative;
+    /* Adiciona a propriedade de overflow para o pseudo-elemento funcionar */
+    overflow: hidden;
+    text-align: center;
+}
+
+.nutri-info-card:hover {
+    transform: scale(1.03);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    background-color: #ffe6ea;
+}
+
+.nutri-info-card img {
+    width: 100px; /* Define uma largura fixa */
+    height: 100px; /* Define uma altura fixa */
+    object-fit: cover; /* Recorta a imagem para caber na dimensão sem distorcer */
+    border-radius: 50%; /* Opcional: para deixar as imagens circulares */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Opcional: Adiciona uma sombra sutil */
+    align-items: center;
+}
+
+.nutri-info-card h4 {
+    font-size: 1.4rem;
+    font-weight: 500;
+    margin: 0 0 10px 0;
+    color: #333;
+}
+
+.nutri-info-card p {
+    font-size: 1rem;
+    margin: 0;
+    color: #666;
+    max-height: 100%;
+    overflow: visible;
+}
+
+/* Títulos de Refeição 1, 2, 3, 4 */
+.nutri-info-card-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #FF6585;
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Classes para controlar a exibição dos modais */
+.is-visible {
+    display: flex;
+}
+
+/* Animação para os cards de refeição */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-card {
+    animation: slideIn 0.5s ease-out forwards;
+}
+
+/* NOVA ANIMAÇÃO: Efeito de Brilho no Hover */
+.nutri-info-card:hover::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50px;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.4);
+    transform: skewX(-20deg);
+    transition: transform 0.6s ease;
+}
+
+.nutri-info-card:hover::before {
+    transform: translateX(300%) skewX(-20deg);
+}

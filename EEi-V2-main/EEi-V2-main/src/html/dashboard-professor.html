@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard do Professor</title>
+    <link rel="icon" href="/images/logov3_sem_fundo.png" type="image/x-icon">
+    <link rel="stylesheet" href="../css/style_professor.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Hubballi&display=swap" rel="stylesheet">
+</head>
+<body>
+
+
+    <nav class="icon-sidebar card">
+        <ul>
+            <li><a href="#" class="active"><i class="fa-solid fa-house"></i></a></li>
+            <li><a href="#"><i class="fa-solid fa-user-graduate"></i></a></li>
+            <li><a href="#"><i class="fa-solid fa-chalkboard-user"></i></a></li>
+            <li><a href="#"><i class="fa-solid fa-utensils"></i></a></li>
+            <li><a href="#"><i class="fa-solid fa-list-check"></i></a></li>
+            <li><a href="#"><i class="fa-solid fa-envelope"></i></a></li>
+        </ul>
+    </nav>
+
+    <div class="main-container-wrapper">
+        <div class="main-container">
+
+            <main class="content-area">
+                
+                <header class="welcome-banner card">
+                    <h1>Seja Bem-Vindo</h1>
+                    <h2>Professor</h2>
+                    <p>Tenha um Ótimo Dia!</p>
+                </header>
+
+                <div class="stats-grid">
+                    <section class="stat-card card-alunos card">
+                        <a href="#">
+                            <span>Consultar Turma</span>
+                            <h3>25 <small>alunos</small></h3>
+                            <p class="percentage">+2,7% em relação a última análise</p>
+                        </a>
+                    </section>
+                    <section class="stat-card card-professores card">
+                        <a href="#">
+                            <span>Fazer Chamada</span>
+                            <h3>06 <small>faltas</small></h3>
+                            
+                            <p class="percentage">+0,16% em relação a última análise</p>
+                        </a>
+                    </section>
+                    <section class="stat-card card-cardapio card">
+                        <a href="#">
+                            <span>Plano de Atividade</span>
+                            <h3>30<small>Atividades</small></h3>
+                            <p class="percentage">+4,0% em relação a última análise</p>
+                        </a>
+                    </section>
+                </div>
+
+                <div class="bottom-grid">
+                    <section class="card task-register">
+                        <h4>Registro de Tarefas</h4>
+                        <div class="task-progress-bar">
+                            <div class="progress-bar-segment concluded" style="width: 66.67%;"><span>66,67%</span></div>
+                            <div class="progress-bar-segment in-progress" style="width: 33.33%;"><span>33,33%</span></div>
+                            <div class="progress-bar-segment pending" style="width: 20%;"><span>20,00%</span></div>
+                        </div>
+                        <div class="task-stats">
+                            <div class="task-item concluidas">
+                                <span class="task-number">10</span>
+                                <p>Concluídas</p>
+                            </div>
+                            <div class="task-item em-andamento">
+                                <span class="task-number">05</span>
+                                <p>Em Andamento</p>
+                            </div>
+                            <div class="task-item pendentes">
+                                <span class="task-number">03</span>
+                                <p>Pendentes</p>
+                            </div>
+                        </div>
+                    </section>
+                    
+                    <section class="card messages">
+                        <h4>Mensagens <span class="message-count">+4</span></h4>
+                        <div class="message-list">
+                            <div class="message-item">Responsável 1 enviou um documento</div>
+                            <div class="message-item">Responsável 2 enviou um documento</div>
+                            <div class="message-item">Responsável 3 enviou um documento</div>
+                            <div class="message-item">Responsável 4 enviou um documento</div>
+                        </div>
+                    </section>
+                </div>
+            </main>
+
+            <aside class="right-sidebar">
+                <div class="card profile-card">
+                    <h4>Meu Perfil</h4>
+                    <div class="profile-details">
+                        <img src="../" alt="Foto do Secretário">
+                        <div class="profile-info">
+                            <h5>João Xavier</h5>
+                            <p>Código: 00001</p>
+                        </div>
+                    </div>
+                    <div class="profile-stats">
+                        <div class="stat-item">
+                            <span>Turno</span>
+                            <strong>Tarde</strong>
+                        </div>
+                        <div class="stat-item">
+                            <span>Idade</span>
+                            <strong>30 anos</strong>
+                        </div>
+                        <div class="stat-item">
+                            <span>Status</span>
+                            <strong>Ativo</strong>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card calendar-card">
+                    <h4>Calendário</h4>
+                    <div class="calendar-header">
+                        <span id="current-month-display"></span>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+                    <div class="calendar-days" id="calendar-days-container">
+                    </div>
+                    <div class="appointments">
+                        <div class="date-header" id="current-date-header"></div>
+                        <ul id="appointments-list">
+                        </ul>
+                    </div>
+                </div>
+            </aside>
+
+        </div>
+    </div>
+
+<script src="../js/script_professor.js"></script>
+</body>
+</html>

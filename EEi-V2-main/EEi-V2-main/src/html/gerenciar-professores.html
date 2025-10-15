@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Gerenciar Professores - Pequenos Sonhos</title>
+<link rel="stylesheet" href="../css/style.css"> <!-- ajuste conforme sua estrutura -->
+<style>
+/* CSS rápido para o card estendido em linha */
+.container { padding: 20px; }
+.header { display:flex; justify-content:space-between; align-items:center; }
+.list { display:flex; flex-direction:column; gap:12px; margin-top:16px; }
+.prof-card {
+  display:flex; align-items:center; gap:12px;
+  padding:12px; border-radius:10px; box-shadow:0 2px 6px rgba(0,0,0,0.08);
+  background:#fff; width:100%;
+}
+.info { display:flex; flex-direction:row; gap:24px; align-items:center; width:100%; }
+.info > div { min-width:130px; }
+.actions { display:flex; gap:8px; }
+.card-disabled { opacity:0.45; filter:grayscale(0.4); }
+.small-nav { display:flex; gap:8px; align-items:center; }
+button { cursor:pointer; padding:6px 10px; border-radius:6px; }
+.modal { position:fixed; left:0;right:0;top:0;bottom:0; display:none; align-items:center; justify-content:center; background:rgba(0,0,0,0.4); }
+.modal .box { background:#fff; padding:16px; border-radius:8px; width:560px; max-width:95%; }
+.show { display:flex; }
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="header">
+    <h1>Gerenciar Professores</h1>
+    <div class="small-nav">
+      <button id="btn-adicionar">Adicionar professor</button>
+      <button id="btn-refresh">Atualizar</button>
+    </div>
+  </div>
+
+  <div id="notificacao"></div>
+  <div class="list" id="professores-list"></div>
+</div>
+
+<!-- Modal para criar/editar -->
+<div id="modal" class="modal">
+  <div class="box">
+    <h3 id="modal-title">Adicionar professor</h3>
+    <form id="form-prof">
+      <input type="hidden" id="professor_id" />
+      <input type="hidden" id="usuario_id" />
+      <div>
+        <label>Nome completo</label><br>
+        <input id="nome_completo" required />
+      </div>
+      <div>
+        <label>Email</label><br>
+        <input id="email" type="email" required />
+      </div>
+      <div>
+        <label>Senha (deixe vazio para não alterar)</label><br>
+        <input id="senha" type="password" />
+      </div>
+      <div>
+        <label>Código</label><br>
+        <input id="codigo" />
+      </div>
+      <div>
+        <label>Turno</label><br>
+        <input id="turno" />
+      </div>
+      <div>
+        <label>Especialidade</label><br>
+        <input id="especialidade" />
+      </div>
+      <div style="margin-top:10px;">
+        <button type="submit">Salvar</button>
+        <button type="button" id="btn-cancel">Cancelar</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script src="../js/script_professores.js"></script>
+</body>
+</html>
