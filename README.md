@@ -1,7 +1,7 @@
 
 
 <p align="center">
-<img src="public/logov3_sem_fundo.png" alt="Logotipo" width="230vh" height="230vh">
+<img src="./public/images/logo.png" alt="Logotipo" width="230vh" height="230vh">
 </p>
 </br>
 
