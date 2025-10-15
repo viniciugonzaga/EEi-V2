@@ -1,7 +1,7 @@
 
 
 <p align="center">
-<img src="./public/images/logo.png" alt="Logotipo" width="230vh" height="230vh">
+<img src="./EEi-V2-main/EEi-V2-main/public/images/logo.png" alt="Logotipo" width="230vh" height="230vh">
 </p>
 </br>
 
